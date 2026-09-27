@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIFAR-10 CNNs — Rima Krivickienė</title>
+<meta name="description" content="CIFAR-10 image classification: ten CNN iterations from a 55.7% baseline to a 93.2% ensemble.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 05</p>
+      <h1 class="display">CIFAR-10 CNNs<span class="accent">.</span></h1>
+      <p class="lede">Object recognition with convolutional neural networks: ten deliberate iterations, each one testing a single hypothesis, from a 55.7% baseline to a 93.2% ensemble.</p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn ghost" href="https://github.com/rimakrivis/CNN-DL-ImageClassification" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Team</dt><dd>Pavitra, Rima, Mohamed</dd></div>
+        <div><dt class="label">Context</dt><dd>Ironhack AI Engineering</dd></div>
+        <div><dt class="label">Year</dt><dd>2026</dd></div>
+        <div><dt class="label">Best result</dt><dd><span class="accent">93.21% test accuracy</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section style="border-top:0;padding-top:20px">
+    <div class="wrap grid-12">
+      <p class="label side-label">Iterations</p>
+      <div class="prose reveal">
+        <p>This is where my biochemistry training shows: change one thing, measure, keep what works. We logged every model version in a tracking sheet.</p>
+        <table class="table">
+          <thead><tr><th>Model</th><th>What changed</th><th>Test acc.</th></tr></thead>
+          <tbody>
+            <tr><td>#1</td><td>Baseline, 2 conv layers</td><td>55.70%</td></tr>
+            <tr><td>#2</td><td>+ BatchNorm &amp; Dropout</td><td>62.63%</td></tr>
+            <tr><td>#3</td><td>Optimised for 32×32 input + BN</td><td>82.15%</td></tr>
+            <tr><td>#4</td><td>6 conv layers + L2 regularisation</td><td>81.00%</td></tr>
+            <tr><td>#6</td><td>13 conv layers + Global Avg Pooling</td><td>93.03%</td></tr>
+            <tr><td>#7</td><td>Contrast augmentation + AdamW (best single)</td><td>93.12%</td></tr>
+            <tr><td>#9</td><td>EfficientNetB0 transfer learning</td><td>91.35%</td></tr>
+            <tr class="best"><td>#10</td><td>Final ensemble</td><td>93.21%</td></tr>
+          </tbody>
+        </table>
+        <p>Cats and dogs stayed the hardest pair to tell apart, as the confusion matrices show. Interestingly, transfer learning did <em>not</em> beat our own well-regularised CNN on these tiny 32×32 images.</p>
+        <ul class="tags"><li>TensorFlow / Keras</li><li>Data augmentation</li><li>Batch normalisation</li><li>Dropout · L2</li><li>AdamW</li><li>EfficientNetB0</li><li>Ensembling</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="num">Slides</span><h2>From the presentation</h2></div>
+      <div class="gallery">
+        <figure class="reveal"><img src="../assets/img/cnn-ensemble.jpg" alt="Confusion matrix of the best grid-search ensemble" loading="lazy"><figcaption class="label">Ensemble confusion matrix</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/cnn-confusion.jpg" alt="Confusion matrix of an earlier model" loading="lazy"><figcaption class="label">Earlier model, for comparison</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/cnn-app.jpg" alt="CIFAR-10 classifier upload app" loading="lazy" style="max-width:420px"><figcaption class="label">Upload-and-predict app</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/cnn-title.jpg" alt="CIFAR-10 CNNs title slide" loading="lazy"><figcaption class="label">Title slide</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="dropoperator.html"><span class="label">Back to the start</span><span class="display">DropOperator →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>

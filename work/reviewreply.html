@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReviewReply — Rima Krivickienė</title>
+<meta name="description" content="ReviewReply: a Chrome extension that drafts on-brand replies to Google Business reviews with AI, following each business's playbook.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 02</p>
+      <h1 class="display">ReviewReply<span class="accent">.</span></h1>
+      <p class="lede">A Chrome extension that drafts on-brand replies to Google Business reviews, in one click, right inside Google's review page.</p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn" href="https://github.com/rimakrivis/review-reply" target="_blank" rel="noopener">View on GitHub <span class="arr">↗</span></a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Role</dt><dd>Solo: product, code and prompts</dd></div>
+        <div><dt class="label">Built for</dt><dd>A real bar client, made reusable</dd></div>
+        <div><dt class="label">Year</dt><dd>2026 · v0.2.1</dd></div>
+        <div><dt class="label">Cost</dt><dd>A fraction of a cent per reply</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section style="border-top:0;padding-top:20px">
+    <div class="wrap grid-12">
+      <p class="label side-label">The problem</p>
+      <div class="prose reveal">
+        <p>Small businesses get the same kinds of reviews again and again: a long wait at the bar, a refused entry, a wrong bill, praise for a favourite bartender. Answering each one well takes time, and generic AI replies <em>sound</em> generic. I was answering reviews for a bar client myself and wanted something that answers the way the owner would.</p>
+        <h3>What I built</h3>
+        <ul>
+          <li><strong>A situations playbook.</strong> For every recurring situation, the business describes how to recognise it, how to respond and what never to say. The model picks the matching situation and shows which one it used.</li>
+          <li><strong>One-click drafts on the page.</strong> A "✨ Draft reply" bar above each reply box, with <em>Shorter</em>, <em>Warmer</em> and <em>Try again</em>.</li>
+          <li><strong>Profiles and templates</strong> for bars, restaurants, cafés, hotels and salons, with JSON import and export.</li>
+          <li><strong>Safe by default.</strong> Rules stop the AI admitting liability, promising refunds or repeating personal details. Review text is treated as data, never as instructions, and it's tested against a built-in "ignore previous instructions" attack.</li>
+          <li><strong>Human in the loop.</strong> The extension only types a draft. A person reads it and clicks Google's own Post button.</li>
+          <li><strong>No server.</strong> The API key stays in the browser, and reviews go only to OpenAI.</li>
+        </ul>
+        <h3>Stack</h3>
+        <ul class="tags"><li>TypeScript</li><li>Chrome Manifest V3</li><li>Side panel · Shadow DOM</li><li>OpenAI structured outputs</li><li>gpt-4o-mini (switchable)</li><li>esbuild</li><li>Vitest + jsdom</li><li>Model-comparison eval script</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="num">Screens</span><h2>Inside the extension</h2></div>
+      <div class="gallery">
+        <figure class="reveal"><img src="../assets/img/rr-demo.jpg" alt="Draft reply injected into a Google review page" loading="lazy"><figcaption class="label">Draft on the review page</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/rr-settings.jpg" alt="Settings page with the situations playbook" loading="lazy"><figcaption class="label">Settings &amp; playbook</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/rr-sidepanel.jpg" alt="Side panel for switching business profiles" loading="lazy" style="max-width:360px"><figcaption class="label">Side panel</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="fake-news.html"><span class="label">Next project</span><span class="display">Fake News →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>

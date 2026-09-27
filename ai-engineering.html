@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Engineering — Rima Krivickienė</title>
+<meta name="description" content="AI engineering projects by Rima Krivickienė: multi-agent systems, RAG, LLM tools, NLP and computer vision.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="ai">
+<main>
+
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label">01 / AI Engineering</p>
+      <h1 class="display">Things I've built<span class="accent">.</span></h1>
+      <p class="lede">Generative AI products, autonomous agents and RAG systems, plus the classic ML groundwork behind them. Each one was built end to end: data, model, evaluation, interface and deployment.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;border-top:0">
+    <div class="wrap">
+
+      <article class="feature reveal">
+        <a class="media" href="work/dropoperator.html"><img src="assets/img/drop-dashboard.jpg" alt="DropOperator daily dashboard with calendar and task board" loading="lazy"></a>
+        <div class="body">
+          <span class="label">Featured · Solo build · Live</span>
+          <h3>DropOperator</h3>
+          <p>A multi-agent platform for musicians. Upload a song or paste a YouTube link and it produces a full, dated release strategy: Spotify pitches, press campaign and social roadmap.</p>
+          <ul class="tags"><li>LangGraph ReAct</li><li>Pinecone RAG</li><li>GPT-4o · Grok</li><li>FastAPI</li><li>Next.js 14</li><li>Supabase</li></ul>
+          <div class="links">
+            <a class="link-arrow" href="work/dropoperator.html">Case study →</a>
+            <a class="link-arrow" href="https://music-ai-chat.vercel.app" target="_blank" rel="noopener">Live ↗</a>
+            <a class="link-arrow" href="https://github.com/rimakrivis/music-ai-chatbot" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature flip reveal">
+        <a class="media" href="work/reviewreply.html"><img src="assets/img/rr-demo.jpg" alt="ReviewReply drafting a reply on a Google review page" loading="lazy" style="object-position:top"></a>
+        <div class="body">
+          <span class="label">Featured · Chrome extension · Real client</span>
+          <h3>ReviewReply</h3>
+          <p>Drafts on-brand replies to Google Business reviews, following each business's own playbook of situations. It has built-in safety rules and no server, and a human always clicks Post.</p>
+          <ul class="tags"><li>TypeScript</li><li>Chrome MV3</li><li>OpenAI structured outputs</li><li>Prompt-injection guard</li><li>Vitest</li></ul>
+          <div class="links">
+            <a class="link-arrow" href="work/reviewreply.html">Case study →</a>
+            <a class="link-arrow" href="https://github.com/rimakrivis/review-reply" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="cards-3">
+        <a class="card reveal" href="work/fake-news.html">
+          <div class="media"><img src="assets/img/fake-title.jpg" alt="Fake News Detection title slide" loading="lazy"></div>
+          <div class="meta"><span class="label">NLP · Classification</span><span class="label accent">95.5% acc.</span></div>
+          <h3>Fake News Detection</h3>
+          <p>TF-IDF + FastText with a triple-model ensemble that sorts real from fake headlines.</p>
+          <ul class="tags"><li>scikit-learn</li><li>NLTK</li><li>FastText</li></ul>
+        </a>
+        <a class="card reveal" href="work/amazon-nlp.html">
+          <div class="media"><img src="assets/img/nlp-dashboard.jpg" alt="Customer Feedback Intelligence dashboard" loading="lazy"></div>
+          <div class="meta"><span class="label">NLP · Clustering</span><span class="label accent">34.6K reviews</span></div>
+          <h3>Customer Feedback Intelligence</h3>
+          <p>Sentiment, product clusters and AI summaries over Amazon reviews, in an interactive dashboard.</p>
+          <ul class="tags"><li>RoBERTa</li><li>VADER</li><li>Sentence-Transformers</li><li>K-Means</li></ul>
+        </a>
+        <a class="card reveal" href="work/cnn-cifar10.html">
+          <div class="media"><img src="assets/img/cnn-title.jpg" alt="CIFAR-10 CNNs title slide" loading="lazy"></div>
+          <div class="meta"><span class="label">Computer vision</span><span class="label accent">93.2% acc.</span></div>
+          <h3>CIFAR-10 CNN Classifier</h3>
+          <p>Ten model iterations, from a 55.7% baseline to a 93.2% ensemble, with an upload-and-predict app.</p>
+          <ul class="tags"><li>TensorFlow / Keras</li><li>EfficientNet</li><li>Augmentation</li></ul>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid-12">
+      <div class="side-label reveal" style="grid-column:span 3"><p class="label">Toolkit</p></div>
+      <div class="skills reveal" style="grid-column:span 9">
+        <div><h4 class="label">AI / GenAI</h4><ul class="tags"><li>LangGraph</li><li>LangChain</li><li>RAG</li><li>Agents</li><li>Prompt engineering</li><li>Embeddings</li><li>Evaluation</li></ul></div>
+        <div><h4 class="label">Backend</h4><ul class="tags"><li>Python</li><li>FastAPI</li><li>SQL</li><li>REST APIs</li><li>Git</li><li>Bash</li></ul></div>
+        <div><h4 class="label">Frontend</h4><ul class="tags"><li>Next.js 14</li><li>TypeScript</li><li>React</li><li>Tailwind CSS</li></ul></div>
+        <div><h4 class="label">ML / NLP</h4><ul class="tags"><li>NLP</li><li>Supervised &amp; unsupervised</li><li>Deep learning</li><li>Computer vision</li></ul></div>
+        <div><h4 class="label">Data</h4><ul class="tags"><li>NumPy</li><li>Pandas</li><li>Visualisation</li><li>Vector databases</li></ul></div>
+        <div><h4 class="label">Cloud</h4><ul class="tags"><li>AWS Cloud Practitioner</li><li>Vercel</li><li>Render</li><li>Supabase</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Feedback AI — Rima Krivickienė</title>
+<meta name="description" content="Customer Feedback Intelligence System: sentiment analysis, product clustering and AI summaries over 34,000 Amazon reviews.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 04</p>
+      <h1 class="display">Customer Feedback Intelligence<span class="accent">.</span></h1>
+      <p class="lede">"Because reading 34,000 reviews manually is not data science. It's punishment." An NLP pipeline that turns raw Amazon reviews into sentiment, product groups and summaries a business can act on.</p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn ghost" href="https://github.com/rimakrivis/NLPBusinessCase" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Team</dt><dd>Pavitra &amp; Rima</dd></div>
+        <div><dt class="label">Context</dt><dd>Ironhack AI Engineering</dd></div>
+        <div><dt class="label">Year</dt><dd>2026</dd></div>
+        <div><dt class="label">Data</dt><dd>34,620 Amazon reviews</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap reveal"><div class="cover"><img src="../assets/img/nlp-dashboard.jpg" alt="Customer Feedback Intelligence dashboard with sentiment by product cluster" width="2000" height="1300"></div></div>
+
+  <section style="border-top:0">
+    <div class="wrap grid-12">
+      <p class="label side-label">What it does</p>
+      <div class="prose reveal">
+        <ul>
+          <li><strong>Classify sentiment.</strong> Star ratings mapped to three classes and balanced (812 per class). Text prepared with stemming, negation handling ("not_good") and TF-IDF bigrams, then labelled with <strong>VADER</strong> and a <strong>RoBERTa</strong> sentiment model (cardiffnlp twitter-roberta-base).</li>
+          <li><strong>Group products.</strong> Sentence-Transformer embeddings (all-MiniLM-L6-v2) clustered with <strong>K-Means</strong>. The elbow method chose k = 5, shown with PCA, and each cluster got a business-friendly name like "Top-Rated &amp; Premium Picks".</li>
+          <li><strong>Summarise.</strong> An LLM step writes a short summary per cluster, so a manager can read 5 paragraphs instead of 34K reviews.</li>
+          <li><strong>Show it.</strong> Streamlit + Plotly and Gradio dashboards with cluster selector, top products and raw data view.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>Hugging Face Transformers</li><li>RoBERTa</li><li>VADER</li><li>Sentence-Transformers</li><li>scikit-learn</li><li>Streamlit</li><li>Gradio</li><li>Plotly</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="num">Slides</span><h2>From the presentation</h2></div>
+      <div class="gallery">
+        <figure class="reveal"><img src="../assets/img/nlp-architecture.jpg" alt="Architecture diagram: data sources, Streamlit app, user browser" loading="lazy"><figcaption class="label">App architecture</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/nlp-elbow.jpg" alt="Elbow method chart and cluster heatmap" loading="lazy"><figcaption class="label">Elbow method → k = 5</figcaption></figure>
+        <figure class="wide reveal"><img src="../assets/img/nlp-title.jpg" alt="Customer Feedback Intelligence System title slide" loading="lazy"><figcaption class="label">Title slide</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="cnn-cifar10.html"><span class="label">Next project</span><span class="display">CIFAR-10 CNNs →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>

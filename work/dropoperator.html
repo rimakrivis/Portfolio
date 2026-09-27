@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DropOperator — Rima Krivickienė</title>
+<meta name="description" content="DropOperator: a multi-agent LangGraph platform that turns a song into a complete, dated music release strategy.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 01</p>
+      <h1 class="display">DropOperator<span class="accent">.</span></h1>
+      <p class="lede">An AI-powered music release planner, "because every drop deserves an operator". Give it a song and it gives you a full release strategy with dates, pitches and a task board.</p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn" href="https://music-ai-chat.vercel.app" target="_blank" rel="noopener">Open live app <span class="arr">↗</span></a>
+        <a class="btn ghost" href="https://github.com/rimakrivis/music-ai-chatbot" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Role</dt><dd>Solo build, from architecture to deployment</dd></div>
+        <div><dt class="label">Context</dt><dd>Ironhack AI Engineering, final project</dd></div>
+        <div><dt class="label">Year</dt><dd>2026, still developing</dd></div>
+        <div><dt class="label">Status</dt><dd>Live on Vercel + Render</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap reveal"><div class="cover"><img src="../assets/img/drop-dashboard.jpg" alt="DropOperator dashboard with calendar, daily tasks and assistant" width="2000" height="1000"></div></div>
+
+  <section style="border-top:0">
+    <div class="wrap grid-12">
+      <p class="label side-label">The problem</p>
+      <div class="prose reveal">
+        <p>I managed releases for a rock band for years, and every single one meant the same scramble: when to pitch Spotify editorial, which radio stations to email, what to post and on which day. Independent artists rarely have a manager to plan this, so good songs come out with no plan at all.</p>
+        <h3>What I built</h3>
+        <ul>
+          <li><strong>Song in, strategy out.</strong> Upload an MP3/WAV or paste a YouTube URL. The app transcribes the lyrics, detects the genre and builds a release plan with dates.</li>
+          <li><strong>A LangGraph ReAct agent</strong> with 6 tools decides what it needs: audio analysis, lyrics, Spotify data, and a <strong>Pinecone RAG</strong> knowledge base of music-marketing know-how (512 chunks).</li>
+          <li><strong>Plans become work.</strong> Every step syncs into a calendar and a to-do board in Supabase. Each task has its own assistant for writing Spotify pitches, radio emails and captions.</li>
+          <li><strong>Beyond single releases:</strong> concert and social-campaign project types, band profiles and per-project memory.</li>
+        </ul>
+        <h3>Architecture</h3>
+        <ul class="tags"><li>Python 3.11</li><li>FastAPI</li><li>LangGraph / LangChain</li><li>xAI Grok + GPT-4o</li><li>OpenAI embeddings</li><li>Pinecone</li><li>Supabase Postgres</li><li>Essentia (400-class genre model)</li><li>AssemblyAI</li><li>yt-dlp · Spotipy</li><li>Next.js 14 · TypeScript · Tailwind</li><li>Vercel · Render</li></ul>
+        <p>Genre detection uses Essentia's Discogs-EffNet model locally. On the free Render tier I swapped it for a lighter librosa pipeline so the live app stays fast. That's a real production trade-off, not just a demo.</p>
+        <h3>Evaluation</h3>
+        <p>I wrote an automated evaluation suite that scores the agent's plans. The latest run passed 4 of 5 test cases with an average score of <strong>0.79</strong>, and the failing case shows me what to fix next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="num">Demo</span><h2>See it work</h2></div>
+      <div class="video reveal"><iframe src="https://www.youtube-nocookie.com/embed/HG0S68oI20M" title="DropOperator demo" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="gallery" style="margin-top:20px">
+        <figure class="reveal"><img src="../assets/img/drop-title.jpg" alt="DropOperator pitch deck title slide" loading="lazy"><figcaption class="label">Business pitch deck</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/drop-mic.jpg" alt="Studio microphone visual from the pitch deck" loading="lazy"><figcaption class="label">Brand visual</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="reviewreply.html"><span class="label">Next project</span><span class="display">ReviewReply →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>

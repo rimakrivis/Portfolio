@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Rima Krivickienė</title>
+<meta name="description" content="Get in touch with Rima Krivickienė, AI Engineer in Amsterdam.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+<main>
+
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h1 class="display">Say hello<span class="accent">.</span></h1>
+      <p class="lede">Hiring for an AI role, have a project in mind, or just want to talk agents, RAG or record releases? Write to me.</p>
+    </div>
+  </section>
+
+  <section style="border-top:0;padding-top:10px">
+    <div class="wrap grid-12">
+      <form id="contact-form" class="form reveal" style="grid-column:span 7" novalidate>
+        <!-- Web3Forms: replace with your free access key from https://web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="from_name" value="Portfolio website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset class="field" style="border:0;padding:0;margin:0">
+          <legend class="label" style="margin-bottom:10px">What's it about?</legend>
+          <div class="chips">
+            <input type="radio" id="t1" name="topic" value="AI Engineering role" checked><label for="t1">AI Engineering role</label>
+            <input type="radio" id="t2" name="topic" value="Freelance project"><label for="t2">Freelance project</label>
+            <input type="radio" id="t3" name="topic" value="Music & marketing"><label for="t3">Music &amp; marketing</label>
+            <input type="radio" id="t4" name="topic" value="Just saying hi"><label for="t4">Just saying hi</label>
+          </div>
+        </fieldset>
+        <div class="field"><label class="label" for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+        <div class="field"><label class="label" for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label class="label" for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+          <button class="btn" type="submit">Send message <span class="arr">→</span></button>
+          <p class="form-status" role="status" aria-live="polite" style="margin:0"></p>
+        </div>
+      </form>
+
+      <aside class="reveal" style="grid-column:9 / span 4">
+        <ul class="contact-list">
+          <li><span class="label">Email</span><a href="mailto:rima.poderyte@gmail.com">rima.poderyte@gmail.com</a></li>
+          <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/rima-krivickiene-aiengineer" target="_blank" rel="noopener">rima-krivickiene ↗</a></li>
+          <li><span class="label">GitHub</span><a href="https://github.com/rimakrivis" target="_blank" rel="noopener">rimakrivis ↗</a></li>
+          <li><span class="label">Phone</span><a href="tel:+31685616505">+31 685 616 505</a></li>
+          <li><span class="label">Based in</span><span>Amsterdam, NL</span></li>
+        </ul>
+        <p class="label" style="margin-top:22px"><span class="status">Available for new roles</span></p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+<script src="js/main.js"></script>
+<script>
+  // client-side validation with friendly messages
+  document.getElementById("contact-form").addEventListener("submit", (e) => {
+    const f = e.currentTarget, s = f.querySelector(".form-status");
+    if (!f.checkValidity()) {
+      e.stopImmediatePropagation(); e.preventDefault();
+      s.className = "form-status err"; s.textContent = "Please fill in your name, a valid email and a message.";
+      f.querySelector(":invalid").focus();
+    }
+  }, true);
+</script>
+</body>
+</html>

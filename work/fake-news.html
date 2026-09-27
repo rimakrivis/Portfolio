@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fake News Detection — Rima Krivickienė</title>
+<meta name="description" content="Fake News Detection: an NLP classifier with a triple hybrid ensemble reaching 95.5% accuracy.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 03</p>
+      <h1 class="display">Fake News Detection<span class="accent">.</span></h1>
+      <p class="lede">A machine-learning classifier that sorts real headlines from fake ones, and an honest comparison of which models actually earn their place.</p>
+      <dl class="facts">
+        <div><dt class="label">Team</dt><dd>Rima, Domien, Dimi</dd></div>
+        <div><dt class="label">Context</dt><dd>Ironhack AI Engineering</dd></div>
+        <div><dt class="label">Year</dt><dd>2026</dd></div>
+        <div><dt class="label">Best result</dt><dd><span class="accent">95.5% accuracy · F1 0.953</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap reveal"><div class="cover"><img src="../assets/img/fake-title.jpg" alt="Fake News Detection Using Machine Learning title slide" width="1800" height="1012"></div></div>
+
+  <section style="border-top:0">
+    <div class="wrap grid-12">
+      <p class="label side-label">Approach</p>
+      <div class="prose reveal">
+        <h3 style="margin-top:0">Pipeline</h3>
+        <ul>
+          <li><strong>Cleaning:</strong> NLTK normalisation, stop-word removal and Snowball stemming.</li>
+          <li><strong>Features:</strong> TF-IDF on 1–2-grams (min_df 5, max_df 0.8) plus FastText word embeddings.</li>
+          <li><strong>Models:</strong> Logistic Regression, Multinomial Naive Bayes, Random Forest and SVM, compared on the same validation split.</li>
+          <li><strong>Ensemble:</strong> a probability-averaging hybrid of NB + LR + FastText beat every single model.</li>
+        </ul>
+        <h3>Results</h3>
+        <table class="table">
+          <thead><tr><th>Model</th><th>Accuracy</th><th>F1</th></tr></thead>
+          <tbody>
+            <tr><td>Random Forest</td><td>90.51%</td><td>—</td></tr>
+            <tr><td>Naive Bayes</td><td>92.45%</td><td>0.921</td></tr>
+            <tr><td>SVM</td><td>93.53%</td><td>0.934</td></tr>
+            <tr><td>Logistic Regression</td><td>93.71%</td><td>0.935</td></tr>
+            <tr><td>NB + LR ensemble</td><td>94.91%</td><td>0.947</td></tr>
+            <tr class="best"><td>Triple hybrid (NB + LR + FastText)</td><td>95.48%</td><td>0.953</td></tr>
+          </tbody>
+        </table>
+        <p>Random Forest scored 99.97% on training data but only 90.5% on validation, a textbook case of overfitting. Spotting that early is why we went with the lighter, better-generalising ensemble.</p>
+        <ul class="tags"><li>Python</li><li>scikit-learn</li><li>NLTK</li><li>TF-IDF</li><li>FastText</li><li>Pandas</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="num">Slides</span><h2>From the presentation</h2></div>
+      <div class="gallery">
+        <figure class="wide reveal"><img src="../assets/img/fake-flow.jpg" alt="Model selection flow diagram for the hybrid ensemble" loading="lazy"><figcaption class="label">Model selection flow</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/fake-cloud-fake.jpg" alt="Word cloud of words predicted as fake news" loading="lazy"><figcaption class="label">Predicted fake: word cloud</figcaption></figure>
+        <figure class="reveal"><img src="../assets/img/fake-cloud-real.jpg" alt="Word cloud of words predicted as real news" loading="lazy"><figcaption class="label">Predicted real: word cloud</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="amazon-nlp.html"><span class="label">Next project</span><span class="display">Customer Feedback →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>
