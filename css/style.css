@@ -104,7 +104,7 @@ section.first { border-top: 0; }
 .hero .display .line { display: block; }
 .hero .display .dot { color: var(--accent); }
 .hero-photo figure { margin: 0; position: relative; }
-.hero-photo img { border-radius: 999px 999px 18px 18px; aspect-ratio: 3/4; object-fit: cover; width: 100%; filter: saturate(.92); }
+.hero-photo img { border-radius: 14px; width: 100%; height: auto; filter: saturate(.92); }
 .hero-photo figcaption { margin-top: 10px; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; }
 .status { display: inline-flex; align-items: center; gap: 8px; }
