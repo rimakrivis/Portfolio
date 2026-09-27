@@ -148,7 +148,7 @@ body.bg-active::before { content: ""; position: fixed; inset: 0; z-index: -2; ba
 }
 
 /* ---------- stats ---------- */
-.stats { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--ink); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
 .stat { padding: 26px 20px 8px 0; border-right: 1px solid var(--rule); }
 .stat + .stat { padding-left: 20px; }
 .stat:last-child { border-right: 0; }
@@ -322,3 +322,30 @@ body.bg-active::before { content: ""; position: fixed; inset: 0; z-index: -2; ba
 .press .ttl { font-family: var(--serif); font-size: clamp(19px, 1.8vw, 24px); line-height: 1.25; }
 .press .src { text-align: right; }
 @media (max-width: 760px) { .press a { grid-template-columns: 1fr auto; gap: 6px 12px; } .press .ttl { grid-column: 1 / -1; grid-row: 2; } .press .src { text-align: left; } .press a > span:last-child { display: none; } }
+
+/* concerts timeline */
+.timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.timeline li { display: grid; grid-template-columns: 110px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--rule); font-size: 16px; }
+.stack { display: grid; gap: 12px; }
+.stack figure { margin: 0; } .stack img { border-radius: 14px; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.stack figcaption { margin-top: 8px; }
+.sub-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; margin: clamp(56px, 7vw, 96px) 0 28px; padding-top: 28px; border-top: 1px solid var(--rule); scroll-margin-top: 80px; }
+.sub-head h3 { grid-column: 3 / span 6; font-family: var(--round); font-weight: 800; font-size: clamp(32px, 4vw, 56px); letter-spacing: -.03em; }
+.sub-head p { grid-column: span 4; margin: 0; color: var(--ink-2); font-size: 15px; }
+@media (max-width: 860px) { .sub-head { grid-template-columns: 1fr; } .sub-head > * { grid-column: auto !important; } .timeline li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* browser-frame screenshots */
+.feature .media.browser { position: relative; padding-top: 28px; background: var(--paper-2); border: 1px solid var(--rule); box-shadow: 0 18px 40px -24px rgba(0,0,0,.35); }
+.feature .media.browser::before { content: ""; position: absolute; top: 10px; left: 14px; width: 9px; height: 9px; border-radius: 50%; background: #FF5F57; box-shadow: 15px 0 #FEBC2E, 30px 0 #28C840; }
+.feature .media.browser img { border-radius: 0; }
+[id^="web-"] { scroll-margin-top: 80px; }
+section[id] { scroll-margin-top: 40px; }
+
+/* Chills + Thrills typographic card */
+.feature .media.wordmark { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; aspect-ratio: 16/10; text-decoration: none; background: #111; color: #F7F5F0; position: relative; overflow: hidden; }
+.feature .media.wordmark::before { content: ""; position: absolute; inset: -30%; background: radial-gradient(circle at 30% 30%, rgba(232,85,60,.45), transparent 45%), radial-gradient(circle at 75% 70%, rgba(120,90,255,.35), transparent 45%); filter: blur(30px); transition: transform 1.2s var(--ease); }
+.feature:hover .media.wordmark::before { transform: rotate(25deg) scale(1.1); }
+.wm-top { position: relative; font-family: var(--sans); font-weight: 600; font-size: clamp(30px, 4.4vw, 60px); letter-spacing: .12em; text-transform: uppercase; }
+.wm-top i { font-style: normal; color: var(--accent); }
+.wm-sub, .wm-tag { position: relative; font-family: var(--mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; }
+.wm-tag { position: absolute; bottom: 16px; font-size: 10.5px; letter-spacing: .08em; opacity: .6; }
