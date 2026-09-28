@@ -112,6 +112,57 @@
     })();
   }
 
+  // ---------- presentation slider ----------
+  document.querySelectorAll(".deck[data-src]").forEach((deck) => {
+    const n = +deck.dataset.count, base = deck.dataset.src, title = deck.dataset.title || "Slide";
+    const track = document.createElement("div");
+    track.className = "deck-track"; track.tabIndex = 0;
+    track.setAttribute("aria-label", `${title} presentation, ${n} slides`);
+    for (let i = 1; i <= n; i++) {
+      const img = new Image();
+      img.src = `${base}${String(i).padStart(2, "0")}.jpg`;
+      img.alt = `${title}, slide ${i} of ${n}`;
+      img.width = 1600; img.height = 900;
+      if (i > 1) img.loading = "lazy";
+      track.append(img);
+    }
+    const progress = document.createElement("div"); progress.className = "deck-progress";
+    const bar = document.createElement("div"); bar.className = "deck-bar";
+    bar.innerHTML = `<span class="deck-count"><b>01</b> / ${String(n).padStart(2, "0")}</span>
+      <span class="deck-btns">
+        <button type="button" data-dir="-1" aria-label="Previous slide">←</button>
+        <button type="button" data-dir="1" aria-label="Next slide">→</button>
+        <button type="button" data-full aria-label="Fullscreen">⤢</button>
+      </span>`;
+    deck.append(track, progress, bar);
+
+    const count = bar.querySelector("b"), [prev, next] = bar.querySelectorAll("[data-dir]");
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+    const go = (i) => track.scrollTo({ left: Math.max(0, Math.min(n - 1, i)) * track.clientWidth });
+    const update = () => {
+      const i = current();
+      count.textContent = String(i + 1).padStart(2, "0");
+      progress.style.width = `${((i + 1) / n) * 100}%`;
+      prev.disabled = i === 0; next.disabled = i === n - 1;
+    };
+    bar.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => go(current() + +b.dataset.dir)));
+    let keep = 0;
+    bar.querySelector("[data-full]").addEventListener("click", () => {
+      keep = current();
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (deck.requestFullscreen) deck.requestFullscreen();
+    });
+    deck.addEventListener("fullscreenchange", () => requestAnimationFrame(() => {
+      track.style.scrollBehavior = "auto"; go(keep); track.style.scrollBehavior = "";
+    }));
+    track.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+    });
+    track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+    update();
+  });
+
   // ---------- contact form (Web3Forms, falls back to email) ----------
   const form = document.querySelector("#contact-form");
   if (form) {
