@@ -177,7 +177,7 @@
       <span class="lp-hint">${lp.dataset.hint || "Gatefold · cover design"}</span>
       <button class="lp-replay" type="button">↺ Replay</button>`;
     lp.querySelectorAll("[data-f]").forEach((el) => (el.style.backgroundImage = img(el.dataset.f)));
-    lp.querySelector(".lp-label").style.backgroundImage = img(lp.dataset.label || "label-a.png");
+    lp.querySelector(".lp-label").style.backgroundImage = img(lp.dataset.label || "label-a.jpg");
     lp.setAttribute("role", "img");
     lp.setAttribute("aria-label", lp.dataset.alt || "Animated gatefold vinyl sleeve opening");
     const restart = () => { lp.classList.remove("play"); void lp.offsetWidth; lp.classList.add("play"); };

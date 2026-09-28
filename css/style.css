@@ -446,3 +446,9 @@ section[id] { scroll-margin-top: 40px; }
 .more[open] summary .link-arrow::after { content: "Read less"; font-size: 13px; }
 .more p { animation: more-in .45s var(--ease); }
 @keyframes more-in { from { opacity: 0; transform: translateY(-6px); } }
+.lp[data-vinyl="turquoise"] .lp-vinyl {
+  background:
+    conic-gradient(from 20deg, rgba(255,255,255,0) 0deg, rgba(255,255,255,.20) 30deg, rgba(255,255,255,0) 70deg, rgba(255,255,255,0) 180deg, rgba(255,255,255,.14) 210deg, rgba(255,255,255,0) 250deg),
+    repeating-radial-gradient(circle, rgba(0,0,0,.07) 0 1.2px, rgba(255,255,255,.04) 1.2px 2.4px),
+    url("../assets/vinyl/nnz/marble.jpg") center / cover no-repeat;
+}
