@@ -163,6 +163,34 @@
     update();
   });
 
+  // ---------- gatefold vinyl animation ----------
+  document.querySelectorAll(".lp[data-src]").forEach((lp) => {
+    const src = lp.dataset.src, img = (f) => `url("${src}${f}")`;
+    lp.innerHTML = `<div class="lp-stage"><div class="lp-rig">
+        <div class="lp-shadow"></div>
+        <div class="lp-disc"><div class="lp-spin"><div class="lp-vinyl"></div><div class="lp-label"></div></div></div>
+        <div class="lp-sleeve">
+          <div class="lp-board back"><div class="lp-face" data-f="inside-right.jpg"></div><div class="lp-face rear" data-f="back.jpg"></div></div>
+          <div class="lp-board front"><div class="lp-face" data-f="front.jpg"></div><div class="lp-face rear" data-f="inside-left.jpg"></div></div>
+        </div>
+      </div></div>
+      <span class="lp-hint">${lp.dataset.hint || "Gatefold · cover design"}</span>
+      <button class="lp-replay" type="button">↺ Replay</button>`;
+    lp.querySelectorAll("[data-f]").forEach((el) => (el.style.backgroundImage = img(el.dataset.f)));
+    lp.querySelector(".lp-label").style.backgroundImage = img(lp.dataset.label || "label-a.png");
+    lp.setAttribute("role", "img");
+    lp.setAttribute("aria-label", lp.dataset.alt || "Animated gatefold vinyl sleeve opening");
+    const restart = () => { lp.classList.remove("play"); void lp.offsetWidth; lp.classList.add("play"); };
+    lp.querySelector(".lp-replay").addEventListener("click", restart);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting && !lp.classList.contains("play")) restart();
+        lp.style.setProperty("--state", e.isIntersecting ? "running" : "paused");
+        lp.querySelectorAll("*").forEach((el) => (el.style.animationPlayState = e.isIntersecting ? "running" : "paused"));
+      }, { threshold: 0.35 }).observe(lp);
+    } else lp.classList.add("play");
+  });
+
   // ---------- contact form (Web3Forms, falls back to email) ----------
   const form = document.querySelector("#contact-form");
   if (form) {
