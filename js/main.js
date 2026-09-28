@@ -169,6 +169,7 @@
     lp.innerHTML = `<div class="lp-stage"><div class="lp-rig">
         <div class="lp-shadow"></div>
         <div class="lp-disc"><div class="lp-spin"><div class="lp-vinyl"></div><div class="lp-label"></div></div></div>
+        ${lp.dataset.inner ? `<div class="lp-inner"><div class="lp-face" data-f="inner-front.jpg"></div><div class="lp-face rear" data-f="inner-back.jpg"></div></div>` : ""}
         <div class="lp-sleeve">
           <div class="lp-board back"><div class="lp-face" data-f="inside-right.jpg"></div><div class="lp-face rear" data-f="back.jpg"></div></div>
           <div class="lp-board front"><div class="lp-face" data-f="front.jpg"></div><div class="lp-face rear" data-f="inside-left.jpg"></div></div>
