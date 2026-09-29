@@ -1,0 +1,314 @@
+[
+ {
+  "id": 0,
+  "title": "Home",
+  "url": "/index.html",
+  "text": "Open to AI Engineering roles · Amsterdam\nRima Krivickienė .\nAI Engineer. I build agents, RAG systems and LLM products that solve real business problems, with 11+ years of shipping campaigns, releases and online shops behind me.\nIronhack AI Engineering · 2026 BSc Biochemistry · Vilnius University"
+ },
+ {
+  "id": 1,
+  "title": "Home — AI engineering",
+  "url": "/index.html",
+  "text": "AI engineering\nFrom a multi-agent release planner to classic NLP and computer vision, built end to end.\n01 DropOperator Multi-agent LangGraph platform that turns a song into a full release plan. 2026 · Live\n02 ReviewReply Chrome extension that drafts on-brand replies to Google reviews. 2026 · v0.2\n03 Fake News Detection NLP ensemble that sorts real from fake news at 95.5% accuracy. 2026\n04 Customer Feedback AI 34K Amazon reviews → sentiment, product clusters and AI summaries. 2026\n05 CIFAR-10 CNNs Image classifier taken from 55.7% to 93.2% test accuracy. 2026\nA decade of shipping, now with models\n40+ major campaigns delivered since 2017\n3 vinyl releases managed for Requiem\n0→15K monthly Spotify listeners grown\n2M+ YouTube views"
+ },
+ {
+  "id": 2,
+  "title": "Home — Music & marketing",
+  "url": "/index.html",
+  "text": "Music & marketing\nArtist manager for the Lithuanian rock band Requiem: records, music videos, concerts, a festival and merch.\n01 Vinyl releases Three LPs, from funding and artwork to pre-sale, press and launch shows. 2023–2025\n02 Video production Two music videos: a Bond-crew director and 42 municipalities on one hill. 2025–2026\n03 Concerts & festivals National tours, sold-out launch shows and the Rockmergė festival. 2019 – now\n04 Merch line T-shirts, caps, hoodies, totes and plectrums built from lyrics and inside jokes. Ongoing"
+ },
+ {
+  "id": 3,
+  "title": "Home — Shops & websites",
+  "url": "/index.html",
+  "text": "Shops & websites\nOnline stores and brand sites I've built, run and marketed across Shopify, Squarespace and WooCommerce.\n01 Lost in Amsterdam Bar & lounge brand: website, Lost Shop, marketing and identity. Shopify\n02 Requiem.lt Band website with a merch and vinyl store, gallery and press room. Squarespace\n03 Amorati Online shop for a hypnotherapy brand: programmes, sessions and courses. WooCommerce\n04 Chills + Thrills E-commerce for an Amsterdam smartshop, est. 1998. Retired\n05 / Let's talk"
+ },
+ {
+  "id": 4,
+  "title": "AI Engineering",
+  "url": "/ai-engineering.html",
+  "text": "01 / AI Engineering\nThings I've built .\nGenerative AI products, autonomous agents and RAG systems, plus the classic ML groundwork behind them. Each one was built end to end: data, model, evaluation, interface and deployment."
+ },
+ {
+  "id": 5,
+  "title": "AI Engineering — DropOperator",
+  "url": "/ai-engineering.html",
+  "text": "DropOperator\nA multi-agent platform for musicians. Upload a song or paste a YouTube link and it produces a full, dated release strategy: Spotify pitches, press campaign and social roadmap.\nLangGraph ReAct\nPinecone RAG\nGPT-4o · Grok\nFastAPI\nNext.js 14\nSupabase"
+ },
+ {
+  "id": 6,
+  "title": "AI Engineering — ReviewReply",
+  "url": "/ai-engineering.html",
+  "text": "ReviewReply\nDrafts on-brand replies to Google Business reviews, following each business's own playbook of situations. It has built-in safety rules and no server, and a human always clicks Post.\nTypeScript\nChrome MV3\nOpenAI structured outputs\nPrompt-injection guard\nVitest\nFake News Detection\nTF-IDF + FastText with a triple-model ensemble that sorts real from fake headlines.\nscikit-learn\nNLTK\nFastText\nCustomer Feedback Intelligence\nSentiment, product clusters and AI summaries over Amazon reviews, in an interactive dashboard.\nRoBERTa\nVADER\nSentence-Transformers\nK-Means"
+ },
+ {
+  "id": 7,
+  "title": "AI Engineering — CIFAR-10 CNN Classifier",
+  "url": "/ai-engineering.html",
+  "text": "CIFAR-10 CNN Classifier\nTen model iterations, from a 55.7% baseline to a 93.2% ensemble, with an upload-and-predict app.\nTensorFlow / Keras\nEfficientNet\nAugmentation\nToolkit\nAI / GenAI\nLangGraph\nLangChain\nRAG\nAgents\nPrompt engineering\nEmbeddings\nEvaluation\nBackend\nPython\nFastAPI\nSQL\nREST APIs\nGit\nBash\nFrontend\nNext.js 14\nTypeScript\nReact\nTailwind CSS\nML / NLP\nNLP\nSupervised & unsupervised\nDeep learning\nComputer vision\nData\nNumPy\nPandas\nVisualisation\nVector databases\nCloud\nAWS Cloud Practitioner\nVercel\nRender\nSupabase"
+ },
+ {
+  "id": 8,
+  "title": "Music & Marketing",
+  "url": "/music.html",
+  "text": "Part two / Before AI\nMusic & marketing .\nSince 2019 I've managed Requiem , a Lithuanian rock band formed in 1994: release strategy, touring, music videos, merch, press and a hometown festival. Around it, 11+ years of marketing and e-commerce work.\n15K monthly Spotify listeners, up from 0\n2M+ YouTube views\nRequiem · 30 years of rock'n'roll\nFrom sketch to shrink-wrap\nThree LPs for Requiem, each designed and produced by me, from the first sketch to the pressing plant."
+ },
+ {
+  "id": 9,
+  "title": "Music & Marketing — Karas ir Taika",
+  "url": "/music.html#vinyl",
+  "text": "Karas ir Taika \"War and Peace\", a new album split into a War side and a Peace side. I was its art department and back office at once: I arranged the photoshoot with photographer T. Terekas, designed the cover, gatefold and centre labels around its contact sheet of film photos, then took it all the way to the Green Lakes Pressing vinyl factory and onto the merch table. Read more Behind the artwork sat everything else a record needs: print-ready files, proofs and pressing deadlines with the factory, the budget and a LATGA grant I secured, contracts and 300 hand-numbered copies. I also made sure the audio arrived in the right shape, arranging masters from sound engineer Pavel Daniels to the technical standards of both vinyl cutting and CD replication. The album also came out on CD, with 500 copies produced in the Netherlands. I opened a pre-sale on the band's website and arranged a five-concert tour around the release, in Vilnius, Kaunas, Klaipėda, Alytus and Ukmergė. The vinyl edition is now nearly sold out, and a second pressing is planned for the near future. My role Photoshoot · design · production · tour Pressed by Green Lakes Pressing Vinyl 300 numbered · 60 white · 240 black CD 500 copies · made in the Netherlands Release tour 5 concerts"
+ },
+ {
+  "id": 10,
+  "title": "Music & Marketing — Karas ir Taika",
+  "url": "/music.html#vinyl",
+  "text": "planned for the near future. My role Photoshoot · design · production · tour Pressed by Green Lakes Pressing Vinyl 300 numbered · 60 white · 240 black CD 500 copies · made in the Netherlands Release tour 5 concerts Status Nearly sold out · 2nd press planned Karas ir Taika · gatefold, centre labels & cover designed by me"
+ },
+ {
+  "id": 11,
+  "title": "Music & Marketing — Niekam nežinomi žmonės",
+  "url": "/music.html#vinyl",
+  "text": "Niekam nežinomi žmonės\nThe band's 1998 debut, remastered and pressed on vinyl for the first time as a gift to longtime fans. It had only ever existed on cassette and CD, so I rebuilt the original artwork as a gatefold for the new format and managed the reissue from master to marbled vinyl.\nRead more\nThe original cover was created by the well-known Lithuanian artist Saulius Urbonavičius-Samas, with photos by Claudia Reichardt. My job was to respect it: I kept as much of the design as possible and reworked it to fit a 12-inch gatefold and new centre labels.\nI arranged the remastering of the original 1998 recordings with sound engineer Pavel Daniels, then took the record to the Green Lakes Pressing vinyl factory, in black and in turquoise marble. Around it I handled the licences and paperwork a reissue needs, and opened a pre-sale on the band's website.\nThe launch shows sold out, two concerts back to back. At the release, DJ Mamania of G&G Sindikatas put it simply: \"one of the best Lithuanian rock albums\".\nMy role Redesign · remaster · production · licensing\nOriginal art Saulius Urbonavičius-Samas\nPressed by Green Lakes Pressing\nVinyl Black · turquoise marble\nTracks 15, remastered\nLaunch 2 sold-out concerts\nNiekam nežinomi žmonės · original art by Samas, redesigned for vinyl by me"
+ },
+ {
+  "id": 12,
+  "title": "Music & Marketing — Senos naujienos",
+  "url": "/music.html#vinyl",
+  "text": "Senos naujienos \"Old News\", the album Requiem never made. Around 2003 the band planned a new record that never happened, and its songs stayed scattered as singles or went unreleased. I collected ten of them into the album they should have been, and built the whole idea around the headlines they made at the time. Read more Among them is the hit \"Aš nupirksiu tau namą\", which helped win the band the title of best rock band two years in a row and stayed in the radio charts for an incredibly long time: 33 weeks on Radiocentras. The concept and design are mine. I dug up old articles and photos from newspapers and magazines, mostly from the early 2000s, and turned them into a real newspaper called Senos naujienos . Band leader Tomas Krivickas reads it on the cover, and the full paper is printed on the record's inner sleeve. Some songs were remastered and some freshly recorded, including a new version of Skandalas with the well-known Lithuanian artist ba. (Benas Aleksandravičius), recorded with sound engineer Pavel Daniels at Rockmergė records. Behind it I ran the budget, the recording sessions, the master files and the licences, then took it to Green Lakes Pressing and launched it with concerts in Ukmergė and Vilnius. My role Concept · design · budget ·"
+ },
+ {
+  "id": 13,
+  "title": "Music & Marketing — Senos naujienos",
+  "url": "/music.html#vinyl",
+  "text": "records. Behind it I ran the budget, the recording sessions, the master files and the licences, then took it to Green Lakes Pressing and launched it with concerts in Ukmergė and Vilnius. My role Concept · design · budget · production Songs 10 from 1999–2008, never on an album Hit Aš nupirksiu tau namą · 33 weeks on Radiocentras New recording Skandalas feat. ba. Pressed by Green Lakes Pressing Launch Ukmergė & Vilnius, Nov 2025 Senos naujienos · concept, gatefold and newspaper inner sleeve designed by me Video producer I produced two Requiem music videos: bringing in the crew, locations, partners and volunteers, running the schedule and shoot days, and launching the finished video to press."
+ },
+ {
+  "id": 14,
+  "title": "Music & Marketing — Apie ką tau papasakot",
+  "url": "/music.html#videos",
+  "text": "Apie ką tau papasakot\nAn international production directed by Mexican filmmaker Roberto Valdes , who had been part of the creative team on the James Bond film Spectre . It was shot in late autumn around Ukmergė and Siesikai castle. The crew started as 5 people and grew to about 100, with the municipality, local schools, the regional museum and even the police helping out.\nRole Video producer\nDirector Roberto Valdes · DoP Mykolas Alekna\nLaunch Premiere night at Ukmergė Culture Centre\nStills & behind the scenes · premiere photo: Tauras Gūdmantas"
+ },
+ {
+  "id": 15,
+  "title": "Music & Marketing — Stebuklų šalis",
+  "url": "/music.html#videos",
+  "text": "Stebuklų šalis\n\"Land of Miracles\", a musical gift to Lithuania released on Statehood Day. For the climax scene on Gediminas Hill in Vilnius, 42 municipalities sent representatives with their flags. 70 flags flew at once, including 17 painted by students of the Ukmergė Art School, alongside scouts, youth organisations and volunteers.\nRole Video producer\nPartners 42 Lithuanian municipalities\nLaunch Single + 3-city concert weekend, video on Statehood Day"
+ },
+ {
+  "id": 16,
+  "title": "Music & Marketing — On stage, on schedule",
+  "url": "/music.html#concerts",
+  "text": "On stage, on schedule\nNational tours, launch shows and anniversary concerts: booking venues, logistics, promotion and ticketing.\nOct 2022 Karas ir Taika tour : Vilnius, Kaunas, Klaipėda, Alytus, Ukmergė\nAug 2023 Acoustic concert , the band's first acoustic show since 2001, with the new song \"EmAmaj\"\nMar 2024 NNŽ vinyl launch : the first show sold out in days, so a second night was added\nAug 2024 30th anniversary concert , Downtown Forest, Vilnius\nJan 2025 Video premiere + concerts : Ukmergė, Tamsta (Vilnius), Kaunas\nAug 2025 Rockmergė festival , co-organiser (below)\nNov 2025 Senos naujienos launch : Ukmergė & Vilnius\n2026 Stebuklų šalis weekend : Tamsta (Vilnius), Hogas (Kaunas), Peronas (Kazlų Rūda)\n30th anniversary · photo: Rytis Šeškaitis"
+ },
+ {
+  "id": 17,
+  "title": "Music & Marketing — Rockmergė 2025",
+  "url": "/music.html#rockmerge",
+  "text": "Rockmergė 2025\nCo-organiser, marketing & sponsorship. The festival's 30th anniversary in Ukmergė: 8 bands, a tattoo studio, a cinema zone, a graffiti exhibition and a tribute vinyl.\nPhotos: Terekas, Tauras Gūdmantas"
+ },
+ {
+  "id": 18,
+  "title": "Music & Marketing — A merch line with a sense of humour",
+  "url": "/music.html#merch",
+  "text": "A merch line with a sense of humour\nDesigns built from lyrics and inside jokes: t-shirts, caps, hoodies, totes and plectrums, sold at shows and online.\nPati gražiausia mergina\nSkandalas\nNamas & Mergina\nLogo tee\nŠou biznis\nHoodie\nTote bags\nPlectrums\nShops & websites\nBrand sites and online stores I've built, run and marketed: product listings, CMS, design, campaigns and day-to-day operations."
+ },
+ {
+  "id": 19,
+  "title": "Music & Marketing — Lost in Amsterdam",
+  "url": "/music.html#web-lost",
+  "text": "Lost in Amsterdam\nAn Amsterdam bar & lounge brand. I owned its digital presence end to end: web and graphic design, the Shopify store (\"Lost Shop\"), product listings, brand identity and marketing campaigns.\nShopify\nWeb design\nE-shop operations\nBrand identity\nRequiem.lt\nThe band's home online: news, gallery, a press room and a store selling the vinyl records, CDs and the whole merch line.\nSquarespace\nOnline store\nContent & press\nAmorati\nAn online shop for a hypnotherapy brand, selling programmes, personal sessions, courses, books and gift vouchers in a catalogue organised by topic.\nWordPress\nWooCommerce\nProduct catalogue"
+ },
+ {
+  "id": 20,
+  "title": "Music & Marketing — Chills + Thrills",
+  "url": "/music.html#web-chills",
+  "text": "Chills + Thrills\nI managed the e-commerce website for this Amsterdam smartshop, running since 1998. The web shop has since been retired, and the brand lives on through its Instagram.\nE-shop management\nProduct listings\nSocial media"
+ },
+ {
+  "id": 21,
+  "title": "Music & Marketing — In the news",
+  "url": "/music.html#press",
+  "text": "In the news\nI wrote and pitched the press releases behind these campaigns. Coverage is in Lithuanian, and the headlines here are translated.\nJul 2026 Requiem's gift: an impressive video for \"Stebuklų šalis\" on Statehood Day LRT ↗\nJan 2025 New Requiem video made by a director who worked on James Bond Press release ↗\nMar 2024 Requiem celebrate 1998 with a vinyl record and packed-out concerts Press release ↗\nMar 2024 Marking 30 years, Requiem prepare a special gift for fans Press release ↗\nDec 2022 Requiem and Bjelle release a Christmas song, \"Žiemos pasaka\" Press release ↗\nOct 2022 Legendary Requiem return after a 20-year break with the album \"Karas ir Taika\" 15min.lt ↗\nOct 2022 \"Raudonos rožės radijas\": Requiem on air LRT Radio ↗\nJun 2022 Back on stage: Requiem release \"Beržas\" and announce a new album LRT ↗\nFeb 2022 Requiem come back with a bang: \"Didvyris\" for Independence Day Žmonės.lt ↗\nAll press on requiem.lt ↗\nMarketing & e-commerce"
+ },
+ {
+  "id": 22,
+  "title": "Music & Marketing — Artist Manager, Requiem",
+  "url": "/music.html",
+  "text": "Artist Manager, Requiem\nRelease strategy, national touring, bookings and logistics, music video production, Spotify editorial pitching and radio campaigns. I run a social media team handling daily content and audience growth."
+ },
+ {
+  "id": 23,
+  "title": "Music & Marketing — Marketing Manager, Lost in Amsterdam & freelance",
+  "url": "/music.html",
+  "text": "Marketing Manager, Lost in Amsterdam & freelance\nEnd-to-end marketing across hospitality and e-commerce: web and graphic design, CMS, e-shop operations and brand identity, with several live projects at once, always on time."
+ },
+ {
+  "id": 24,
+  "title": "Music & Marketing — E-commerce Manager, Procare",
+  "url": "/music.html",
+  "text": "E-commerce Manager, Procare\nRan a 1,000+ product online shop day to day alongside an in-house dev team: inventory, pricing, listings, fulfilment and content.\nNow I build tools for this world"
+ },
+ {
+  "id": 25,
+  "title": "About",
+  "url": "/about.html",
+  "text": "About\nScientist by training, marketer by trade, engineer by choice.\nI'm Rima, an AI Engineer based in Amsterdam. I design and build generative AI applications, autonomous agents and RAG systems that solve real business problems.\n01 / The story\nI started in science with a BSc in Biochemistry from Vilnius University. Then I spent 11+ years running cross-functional projects across e-commerce, branding, digital marketing and the music industry: record releases, tours and TV appearances, with 40+ major campaigns delivered since 2017.\nAlong the way I kept building things myself: websites, shops, campaigns, workflows. In 2026 I completed Ironhack's intensive 400-hour AI Engineering bootcamp to do that properly, with LLMs, agents, RAG and machine learning.\nMy most recent build, DropOperator , joins both worlds: a production multi-agent platform for exactly the music-release work I used to do by hand. I take full ownership of what I build, and I now bring that decade of delivery into how I ship AI systems."
+ },
+ {
+  "id": 26,
+  "title": "About — A fast learner, with proof",
+  "url": "/about.html",
+  "text": "A fast learner, with proof\nI went from no production code to a live multi-agent AI platform with RAG, a FastAPI backend and a Next.js frontend during a 400-hour bootcamp. Before that I learned biochemistry, e-commerce, web design, marketing, artist management and vinyl production on the job. When a role needs a tool I haven't used yet, I learn it the way I learn everything: by building something real with it.\nOpen to\nAI Engineering roles in the Amsterdam area: full-time, part-time or freelance, remote or on-site."
+ },
+ {
+  "id": 27,
+  "title": "About — What a career change brings",
+  "url": "/about.html",
+  "text": "What a career change brings\nCross-disciplinary edge Production-level AI engineering combined with 11+ years in digital marketing, artist management and e-commerce, bridging technology with commercial strategy and creative execution.\nA track record of shipping 10+ years of turning ideas into shipped products, campaigns and digital experiences, from vinyl records and merch to full-stack AI applications.\nScientific rigour Biochemistry taught me hypothesis-driven experimentation. I apply it to AI with systematic evaluation, one change at a time, and data-backed optimisation."
+ },
+ {
+  "id": 28,
+  "title": "About — Toolkit",
+  "url": "/about.html",
+  "text": "Toolkit\nAI / GenAI\nLangGraph\nLangChain\nRAG\nLLM applications\nAgents\nPrompt engineering\nEmbeddings\nEvaluation\nBackend\nPython\nFastAPI\nSQL\nREST APIs\nOOP\nGit\nBash\nFrontend\nNext.js 14\nTypeScript\nReact\nTailwind CSS\nML / NLP\nNLP\nSupervised & unsupervised learning\nNeural networks\nDeep learning\nComputer vision\nData & cloud\nNumPy\nPandas\nData visualisation\nVector databases\nAWS Cloud Practitioner\nLeadership & business\nTeam management\nStakeholder management\nE-commerce\nBrand & campaign planning\nArtist & event management\n04 / Education\nAI Engineering Bootcamp Ironhack · 400 hours 2026\nBSc Biochemistry Vilnius University, Lithuania BSc\n05 / Languages\nLithuanian Native\nEnglish Fluent\nDutch B2\nRussian Conversational\nLet's build something"
+ },
+ {
+  "id": 29,
+  "title": "Contact",
+  "url": "/contact.html",
+  "text": "Contact\nSay hello .\nHiring for an AI role, have a project in mind, or just want to talk agents, RAG or record releases? Write to me.\nEmail rima.poderyte@gmail.com\nLinkedIn rima-krivickiene ↗\nGitHub rimakrivis ↗\nPhone +31 685 616 505\nBased in Amsterdam, NL\nAvailable for new roles"
+ },
+ {
+  "id": 30,
+  "title": "DropOperator case study",
+  "url": "/work/dropoperator.html",
+  "text": "← AI Engineering / Case study 01\nDropOperator .\nAn AI-powered music release planner, \"because every drop deserves an operator\". Give it a song and it gives you a full release strategy with dates, pitches and a task board.\nRole\nSolo build, from architecture to deployment\nContext\nIronhack AI Engineering, final project\nYear\n2026, still developing\nStatus\nLive on Vercel + Render\nBusiness pitch deck · use ← → or swipe\nThe problem\nI managed releases for a rock band for years, and every single one meant the same scramble: when to pitch Spotify editorial, which radio stations to email, what to post and on which day. Independent artists rarely have a manager to plan this, so good songs come out with no plan at all."
+ },
+ {
+  "id": 31,
+  "title": "DropOperator case study — What I built",
+  "url": "/work/dropoperator.html",
+  "text": "What I built\nSong in, strategy out. Upload an MP3/WAV or paste a YouTube URL. The app transcribes the lyrics, detects the genre and builds a release plan with dates.\nA LangGraph ReAct agent with 6 tools decides what it needs: audio analysis, lyrics, Spotify data, and a Pinecone RAG knowledge base of music-marketing know-how (512 chunks).\nPlans become work. Every step syncs into a calendar and a to-do board in Supabase. Each task has its own assistant for writing Spotify pitches, radio emails and captions.\nBeyond single releases: concert and social-campaign project types, band profiles and per-project memory."
+ },
+ {
+  "id": 32,
+  "title": "DropOperator case study — Architecture",
+  "url": "/work/dropoperator.html",
+  "text": "Architecture\nPython 3.11\nFastAPI\nLangGraph / LangChain\nxAI Grok + GPT-4o\nOpenAI embeddings\nPinecone\nSupabase Postgres\nEssentia (400-class genre model)\nAssemblyAI\nyt-dlp · Spotipy\nNext.js 14 · TypeScript · Tailwind\nVercel · Render\nGenre detection uses Essentia's Discogs-EffNet model locally. On the free Render tier I swapped it for a lighter librosa pipeline so the live app stays fast. That's a real production trade-off, not just a demo."
+ },
+ {
+  "id": 33,
+  "title": "DropOperator case study — Evaluation",
+  "url": "/work/dropoperator.html",
+  "text": "Evaluation\nI wrote an automated evaluation suite that scores the agent's plans. The latest run passed 4 of 5 test cases with an average score of 0.79 , and the failing case shows me what to fix next.\nSee it work"
+ },
+ {
+  "id": 34,
+  "title": "ReviewReply case study",
+  "url": "/work/reviewreply.html",
+  "text": "← AI Engineering / Case study 02\nReviewReply .\nA Chrome extension that drafts on-brand replies to Google Business reviews, in one click, right inside Google's review page.\nRole\nSolo: product, code and prompts\nBuilt for\nA real bar client, made reusable\nYear\n2026 · v0.2.1\nCost\nA fraction of a cent per reply\nThe problem\nSmall businesses get the same kinds of reviews again and again: a long wait at the bar, a refused entry, a wrong bill, praise for a favourite bartender. Answering each one well takes time, and generic AI replies sound generic. I was answering reviews for a bar client myself and wanted something that answers the way the owner would."
+ },
+ {
+  "id": 35,
+  "title": "ReviewReply case study — What I built",
+  "url": "/work/reviewreply.html",
+  "text": "What I built\nA situations playbook. For every recurring situation, the business describes how to recognise it, how to respond and what never to say. The model picks the matching situation and shows which one it used.\nOne-click drafts on the page. A \"✨ Draft reply\" bar above each reply box, with Shorter , Warmer and Try again .\nProfiles and templates for bars, restaurants, cafés, hotels and salons, with JSON import and export.\nSafe by default. Rules stop the AI admitting liability, promising refunds or repeating personal details. Review text is treated as data, never as instructions, and it's tested against a built-in \"ignore previous instructions\" attack.\nHuman in the loop. The extension only types a draft. A person reads it and clicks Google's own Post button.\nNo server. The API key stays in the browser, and reviews go only to OpenAI.\nStack\nTypeScript\nChrome Manifest V3\nSide panel · Shadow DOM\nOpenAI structured outputs\ngpt-4o-mini (switchable)\nesbuild\nVitest + jsdom\nModel-comparison eval script\nInside the extension\nDraft on the review page\nSettings & playbook\nSide panel"
+ },
+ {
+  "id": 36,
+  "title": "Fake News Detection case study",
+  "url": "/work/fake-news.html",
+  "text": "← AI Engineering / Case study 03\nFake News Detection .\nA machine-learning classifier that sorts real headlines from fake ones, and an honest comparison of which models actually earn their place.\nTeam\nRima, Domien, Dimi\nContext\nIronhack AI Engineering\nYear\n2026\nBest result\n95.5% accuracy · F1 0.953\nProject presentation · use ← → or swipe\nApproach"
+ },
+ {
+  "id": 37,
+  "title": "Fake News Detection case study — Pipeline",
+  "url": "/work/fake-news.html",
+  "text": "Pipeline\nCleaning: NLTK normalisation, stop-word removal and Snowball stemming.\nFeatures: TF-IDF on 1–2-grams (min_df 5, max_df 0.8) plus FastText word embeddings.\nModels: Logistic Regression, Multinomial Naive Bayes, Random Forest and SVM, compared on the same validation split.\nEnsemble: a probability-averaging hybrid of NB + LR + FastText beat every single model."
+ },
+ {
+  "id": 38,
+  "title": "Fake News Detection case study — Results",
+  "url": "/work/fake-news.html",
+  "text": "Results\nModel\nAccuracy\nF1\nRandom Forest\n90.51%\n—\nNaive Bayes\n92.45%\n0.921\nSVM\n93.53%\n0.934\nLogistic Regression\n93.71%\n0.935\nNB + LR ensemble\n94.91%\n0.947\nTriple hybrid (NB + LR + FastText)\n95.48%\n0.953\nRandom Forest scored 99.97% on training data but only 90.5% on validation, a textbook case of overfitting. Spotting that early is why we went with the lighter, better-generalising ensemble.\nPython\nscikit-learn\nNLTK\nTF-IDF\nFastText\nPandas"
+ },
+ {
+  "id": 39,
+  "title": "Customer Feedback Intelligence case study",
+  "url": "/work/amazon-nlp.html",
+  "text": "← AI Engineering / Case study 04\nCustomer Feedback Intelligence .\n\"Because reading 34,000 reviews manually is not data science. It's punishment.\" An NLP pipeline that turns raw Amazon reviews into sentiment, product groups and summaries a business can act on.\nTeam\nPavitra & Rima\nContext\nIronhack AI Engineering\nYear\n2026\nData\n34,620 Amazon reviews\nProject presentation · use ← → or swipe\nWhat it does\nClassify sentiment. Star ratings mapped to three classes and balanced (812 per class). Text prepared with stemming, negation handling (\"not_good\") and TF-IDF bigrams, then labelled with VADER and a RoBERTa sentiment model (cardiffnlp twitter-roberta-base).\nGroup products. Sentence-Transformer embeddings (all-MiniLM-L6-v2) clustered with K-Means . The elbow method chose k = 5, shown with PCA, and each cluster got a business-friendly name like \"Top-Rated & Premium Picks\".\nSummarise. An LLM step writes a short summary per cluster, so a manager can read 5 paragraphs instead of 34K reviews.\nShow it. Streamlit + Plotly and Gradio dashboards with cluster selector, top products and raw data view.\nPython\nHugging Face Transformers\nRoBERTa\nVADER\nSentence-Transformers\nscikit-learn\nStreamlit\nGradio\nPlotly"
+ },
+ {
+  "id": 40,
+  "title": "CIFAR-10 CNN case study",
+  "url": "/work/cnn-cifar10.html",
+  "text": "← AI Engineering / Case study 05\nCIFAR-10 CNNs .\nObject recognition with convolutional neural networks: ten deliberate iterations, each one testing a single hypothesis, from a 55.7% baseline to a 93.2% ensemble.\nTeam\nPavitra, Rima, Mohamed\nContext\nIronhack AI Engineering\nYear\n2026\nBest result\n93.21% test accuracy\nProject presentation · use ← → or swipe\nIterations\nThis is where my biochemistry training shows: change one thing, measure, keep what works. We logged every model version in a tracking sheet.\nModel\nWhat changed\nTest acc.\n#1\nBaseline, 2 conv layers\n55.70%\n#2\n+ BatchNorm & Dropout\n62.63%\n#3\nOptimised for 32×32 input + BN\n82.15%\n#4\n6 conv layers + L2 regularisation\n81.00%\n#6\n13 conv layers + Global Avg Pooling\n93.03%\n#7\nContrast augmentation + AdamW (best single)\n93.12%\n#9\nEfficientNetB0 transfer learning\n91.35%\n#10\nFinal ensemble\n93.21%\nCats and dogs stayed the hardest pair to tell apart, as the confusion matrices show. Interestingly, transfer learning did not beat our own well-regularised CNN on these tiny 32×32 images.\nTensorFlow / Keras\nData augmentation\nBatch normalisation\nDropout · L2\nAdamW\nEfficientNetB0\nEnsembling"
+ },
+ {
+  "id": 41,
+  "title": "CV — Summary",
+  "url": "/assets/cv.pdf",
+  "text": "Summary\nAI Engineer and career changer with a background that spans science, digital operations, marketing and hands-on product building. I design and build generative AI applications, autonomous agents and RAG systems that solve real business problems — most recently DropOperator, a production-ready multi-agent platform I built from the ground up. Before transitioning into AI, I spent 11+ years running cross-functional projects across e-commerce, branding, digital marketing and the music industry — record releases, tours and TV appearances — delivering 40+ major campaigns since 2017."
+ },
+ {
+  "id": 42,
+  "title": "CV — Education",
+  "url": "/assets/cv.pdf",
+  "text": "Education\n- AI Engineering Bootcamp, Ironhack, 2026 — intensive 400-hour bootcamp: generative AI, LLMs, RAG systems, agents and machine learning, with hands-on collaborative projects.\n- BSc Biochemistry, Vilnius University, Lithuania — analytical and research methodology, data-driven scientific investigation."
+ },
+ {
+  "id": 43,
+  "title": "CV — Technical skills",
+  "url": "/assets/cv.pdf",
+  "text": "Technical skills\n- AI / GenAI: LangGraph, LangChain, RAG, LLM applications, agents, prompt engineering, embeddings, evaluation.\n- Backend: Python, FastAPI, SQL, REST APIs, OOP, Git, Bash.\n- Frontend: Next.js 14, TypeScript, React, Tailwind CSS.\n- ML / NLP: NLP, supervised and unsupervised learning, neural networks, deep learning, computer vision.\n- Data: NumPy, Pandas, data analysis, data visualisation, regex and text processing, vector databases.\n- Cloud: AWS Cloud Practitioner, cloud fundamentals, core AWS services."
+ },
+ {
+  "id": 44,
+  "title": "CV — Functional skills",
+  "url": "/assets/cv.pdf",
+  "text": "Functional skills\n- Leadership: team management, cross-functional coordination, full end-to-end project ownership.\n- Communication: stakeholder management, client-facing work, clear cross-team communication.\n- Digital: e-commerce, CMS, brand identity and campaign planning, artist and event management."
+ },
+ {
+  "id": 45,
+  "title": "CV — AI engineering projects",
+  "url": "/assets/cv.pdf",
+  "text": "AI engineering projects\n- DropOperator — multi-agent music release platform (solo build, architecture to deployment, 2026): turns audio uploads or YouTube URLs into release strategies with dated timelines, Spotify editorial pitches, PR campaigns and social media roadmaps. LangGraph ReAct agent with xAI Grok and GPT-4o, dynamic tool calling, Pinecone RAG over music-marketing knowledge, Essentia TensorFlow 400-class genre model, AssemblyAI, FastAPI backend, Next.js 14 and Supabase frontend, deployed on Vercel and Render.\n- NLP pipeline for Amazon product-review feedback classification (2026): TF-IDF and Sentence-Transformer embeddings with K-Means clustering, VADER sentiment and a RoBERTa model.\n- CNN computer-vision classifier on CIFAR-10 (2026): custom CNNs with data augmentation, batch normalisation and dropout."
+ },
+ {
+  "id": 46,
+  "title": "CV — Previous career",
+  "url": "/assets/cv.pdf",
+  "text": "Previous career\n- Artist Manager, Requiem (since 2019): release strategy, national touring, bookings and concert logistics; full release cycle including Spotify editorial pitching, radio campaigns, 3 vinyl releases and merchandise; grew Spotify listeners from 0 to 15K a month and passed 2 million YouTube views; runs a social media team.\n- Marketing Manager, Lost in Amsterdam and freelance clients (2017–2026): end-to-end marketing strategy across hospitality and e-commerce; web design, graphic design, CMS, e-shop operations, product listings and brand identity.\n- E-commerce Manager, Procare (2015–2023): ran a 1,000+ product online shop alongside an in-house development team — inventory, pricing, listings, fulfilment and content."
+ },
+ {
+  "id": 47,
+  "title": "Facts from Rima — How I learn",
+  "url": "/about.html",
+  "text": "How I learn\nI am a fast learner, and I can show it. I went from no production code to shipping DropOperator, a live multi-agent AI platform with RAG, a FastAPI backend and a Next.js frontend, during a 400-hour AI Engineering bootcamp at Ironhack in 2026.\nThroughout my career I have repeatedly learned new fields on the job: biochemistry, e-commerce, web design, marketing, artist management, vinyl production and now AI engineering. When a role needs a tool I haven't used yet, I pick it up quickly by building something real with it."
+ },
+ {
+  "id": 48,
+  "title": "Facts from Rima — Working style",
+  "url": "/about.html",
+  "text": "Working style\nI take full ownership of what I build, from idea and architecture to deployment and launch.\nI combine technical work with business sense: 11+ years of running campaigns, releases and online shops taught me to build things people actually use."
+ },
+ {
+  "id": 49,
+  "title": "Facts from Rima — Budgets, licensing and suppliers",
+  "url": "/about.html",
+  "text": "Budgets, licensing and suppliers\nIn my music work I managed the licensing and the budgets for releases: music licences, recording costs and vinyl production. I worked directly with suppliers such as recording studios and the vinyl pressing plant Green Lakes Pressing."
+ },
+ {
+  "id": 50,
+  "title": "Facts from Rima — Practical details",
+  "url": "/about.html",
+  "text": "Practical details\n- Based in Amsterdam, Netherlands.\n- Languages: Lithuanian (native), English (fluent), Dutch (B2), Russian (conversational).\n- Open to AI Engineering roles in the Amsterdam area: full-time, part-time or freelance, remote or on-site."
+ },
+ {
+  "id": 51,
+  "title": "Facts from Rima — Contact",
+  "url": "/about.html",
+  "text": "Contact\nEmail: rima.poderyte@gmail.com · LinkedIn: linkedin.com/in/rima-krivickiene-aiengineer · GitHub: github.com/rimakrivis"
+ }
+]
