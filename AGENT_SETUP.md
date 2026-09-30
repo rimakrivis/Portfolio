@@ -5,6 +5,8 @@ website, CV and facts, then rates every requirement **Strong / Partial / Missing
 
 Works on a static HTML site deployed on Vercel. Python 3.12+, one OpenAI API key.
 
+> **License:** commercial use requires a paid license from Rima Krivickienė ([rima.poderyte@gmail.com](mailto:rima.poderyte@gmail.com)). See `LICENSE`.
+
 ## Files you copy (the engine, same for everyone)
 
 ```

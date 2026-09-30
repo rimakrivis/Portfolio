@@ -1,0 +1,26 @@
+Copyright (c) 2026 Rima Krivickienė. All rights reserved.
+
+This repository contains:
+  1. the content of Rima Krivickienė's portfolio website (text, images, videos, CV, design), and
+  2. the source code of "See If We Match", an AI recruiter agent (api/, js/agent.js, css/agent.css,
+     scripts/, evals/, agent.config.json, AGENT_SETUP.md).
+
+WHAT YOU MAY DO
+You may view this repository and run the code locally for the sole purpose of evaluating
+Rima Krivickienė's work (for example, as a recruiter or hiring manager).
+
+WHAT YOU MAY NOT DO WITHOUT WRITTEN PERMISSION
+Copy, modify, publish, distribute, sublicense, sell, or use any part of the code or content in any
+other website, product or service, whether commercial or non-commercial.
+
+COMMERCIAL LICENSES
+"See If We Match" is available for use on other websites under a separate paid license.
+Contact: rima.poderyte@gmail.com
+
+THIRD-PARTY COMPONENTS
+Dependencies (such as FastAPI, the OpenAI Python SDK and Beautiful Soup) and web fonts (Google Fonts)
+remain under their own licenses.
+
+NO WARRANTY
+The code is provided "as is", without warranty of any kind. In no event shall the author be liable for
+any claim, damages or other liability arising from the use of the code.
