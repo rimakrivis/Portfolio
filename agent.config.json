@@ -1,0 +1,49 @@
+{
+  "person": {
+    "name": "Rima Krivickienė",
+    "first_name": "Rima",
+    "pronouns": "she/her",
+    "email": "rima.poderyte@gmail.com",
+    "site_url": "https://rimakrivis.vercel.app"
+  },
+
+  "knowledge": {
+    "pages": {
+      "index.html": "Home",
+      "ai-engineering.html": "AI Engineering",
+      "music.html": "Music & Marketing",
+      "about.html": "About",
+      "contact.html": "Contact",
+      "work/dropoperator.html": "DropOperator case study",
+      "work/reviewreply.html": "ReviewReply case study",
+      "work/fake-news.html": "Fake News Detection case study",
+      "work/amazon-nlp.html": "Customer Feedback Intelligence case study",
+      "work/cnn-cifar10.html": "CIFAR-10 CNN case study"
+    },
+    "markdown": {
+      "data/cv.md": { "name": "CV", "url": "/assets/cv.pdf" },
+      "data/facts.md": { "name": "Facts from Rima", "url": "/about.html" }
+    },
+    "projects_dir": "work",
+    "skills_sections": ["About — Toolkit", "CV — Technical skills", "CV — Functional skills", "Facts from Rima — How I learn"]
+  },
+
+  "agent": {
+    "extra_rules": [
+      "Rima's Python and AI engineering work is dated 2026, so it is under one year: rate any \"1+ years\" or more of Python/AI as Partial, never Strong. Her 11+ years of marketing, e-commerce and music management count only for those fields."
+    ]
+  },
+
+  "widget": {
+    "title": "See If We Match",
+    "subtitle": "AI recruiter assistant",
+    "button_label": "See If We Match",
+    "bubble": "Hiring? Paste a job description and my agent checks the fit →",
+    "intro": "Hi! I'm Rima's AI agent. Paste a job description and I'll check it against her portfolio: every requirement rated **Strong**, **Partial** or **Missing**, with links to the evidence.",
+    "chips": [
+      { "label": "What has Rima built with RAG & agents?", "question": "What has Rima built with RAG and agents?" },
+      { "label": "Is she a fit for an AI Engineer role?", "question": "Is Rima a fit for an AI Engineer role?" }
+    ],
+    "open_hashes": ["see-if-we-match", "hire-my-agent"]
+  }
+}

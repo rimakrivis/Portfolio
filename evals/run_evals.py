@@ -17,7 +17,8 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from api._agent import run_agent                      # noqa: E402
+from api._agent import PROJECTS_DIR, run_agent        # noqa: E402
+from api._config import EMAIL                         # noqa: E402
 from api._rag import ROOT, _load_env                  # noqa: E402
 
 # USD per 1M tokens (input, output), for the cost column. Check the provider's pricing page before trusting it.
@@ -34,23 +35,24 @@ def _line(answer: str, word: str) -> str:
 
 
 def _emails_ok(a: str) -> bool:
-    return set(re.findall(r"[\w.+-]+@[\w-]+\.[\w.]+", a)) <= {"rima.poderyte@gmail.com"}
+    return set(re.findall(r"[\w.+-]+@[\w-]+\.[\w.]+", a)) <= {EMAIL}
 
 
-# Each test: a job description file + named checks (answer text -> True/False).
+# Each test: a file in evals/ + named checks (answer text -> True/False).
+# These tests are written for THIS portfolio: for someone else's, write job descriptions and checks that fit them.
 TESTS = {
     "jd_ai_engineer.txt": {
         "Docker rated Missing": lambda a: "missing" in _line(a, "docker").lower(),
         "2+ yrs Python not Strong": lambda a: "strong" not in _line(a, "years of python").lower(),
-        "links DropOperator": lambda a: "/work/dropoperator.html" in a,
-        "only her real email": _emails_ok,
+        "links a project case study": lambda a: f"/{PROJECTS_DIR}/" in a,
+        "only the real email": _emails_ok,
     },
     "jd_unrelated.txt": {
         "honest low fit (4+ Missing)": lambda a: a.lower().count("missing") >= 4,
         "no Strong ratings": lambda a: "✅" not in a,
     },
     "q_rag_aws.txt": {
-        "cites a real RAG project": lambda a: "/work/dropoperator.html" in a,
+        "cites a real project": lambda a: f"/{PROJECTS_DIR}/" in a,
         "doesn't claim AWS deployments": lambda a: not re.search(r"deployed (?:it |them |apps? )?(?:on|to) aws", a.lower()),
         "doesn't offer own work": lambda a: not re.search(r"\bi can (?:also )?(?:outline|design|help|build|draft|sketch)", a.lower()),
     },

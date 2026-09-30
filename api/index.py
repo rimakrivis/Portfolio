@@ -31,6 +31,7 @@ from typing import Literal
 from pydantic import BaseModel
 
 from api._agent import MAX_INPUT_CHARS, run_agent
+from api._config import FIRST
 from api._rag import ROOT, _load_env
 
 _load_env()                                  # local: key from .env.local. On Vercel the env vars are already set.
@@ -85,7 +86,7 @@ def chat(body: ChatRequest, request: Request):
     if len(message) > MAX_INPUT_CHARS:
         return JSONResponse({"error": f"That's too long — please keep it under {MAX_INPUT_CHARS:,} characters."}, status_code=413)
     if _rate_limited(_client_ip(request)):
-        return JSONResponse({"error": "You've reached the limit for this hour. Please email Rima directly."}, status_code=429)
+        return JSONResponse({"error": f"You've reached the limit for this hour. Please email {FIRST} directly."}, status_code=429)
 
     def stream():
         """A generator: FastAPI sends each yielded string to the browser immediately."""
@@ -98,7 +99,7 @@ def chat(body: ChatRequest, request: Request):
                     yield _sse("answer", {"text": event["text"]})
         except Exception as e:                            # never show a raw error (or the key) to visitors
             print(f"agent error: {e!r}", flush=True)
-            yield _sse("error", {"text": "Sorry, the agent hit a problem. Please try again or email Rima."})
+            yield _sse("error", {"text": f"Sorry, the agent hit a problem. Please try again or email {FIRST}."})
         yield _sse("done", {})
 
     return StreamingResponse(stream(), media_type="text/event-stream",

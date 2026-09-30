@@ -24,20 +24,11 @@ EMBED_MODEL = "text-embedding-3-small"                 # cheap, good quality, 15
 CHUNK_WORDS = 220                                      # target chunk size
 OVERLAP_WORDS = 40                                     # words repeated between neighbouring chunks
 
-# Pages to index and a readable name for each (the widget and footer are added by JS, so they're not in the HTML).
-PAGES = {
-    "index.html": "Home",
-    "ai-engineering.html": "AI Engineering",
-    "music.html": "Music & Marketing",
-    "about.html": "About",
-    "contact.html": "Contact",
-    "work/dropoperator.html": "DropOperator case study",
-    "work/reviewreply.html": "ReviewReply case study",
-    "work/fake-news.html": "Fake News Detection case study",
-    "work/amazon-nlp.html": "Customer Feedback Intelligence case study",
-    "work/cnn-cifar10.html": "CIFAR-10 CNN case study",
-}
-MARKDOWN_FILES = {"data/cv.md": ("CV", "/assets/cv.pdf"), "data/facts.md": ("Facts from Rima", "/about.html")}
+# Which pages and files to index comes from agent.config.json ("knowledge"), so this script works for any portfolio.
+# (The widget, header and footer are added by JS, so they're not in the HTML and not indexed.)
+CONFIG = json.loads((ROOT / "agent.config.json").read_text(encoding="utf-8"))["knowledge"]
+PAGES = CONFIG["pages"]                                  # {"about.html": "About", ...}
+MARKDOWN_FILES = {path: (m["name"], m["url"]) for path, m in CONFIG["markdown"].items()}
 
 TEXT_TAGS = ["h1", "h2", "h3", "h4", "p", "li", "td", "th", "dt", "dd", "figcaption", "summary"]
 
