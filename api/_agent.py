@@ -19,6 +19,7 @@ Try it from the portfolio folder:
 import json
 import os
 import re
+from datetime import date
 
 from api._rag import ROOT, _load, _load_env, search
 
@@ -45,7 +46,7 @@ If the user pastes a JOB DESCRIPTION, answer in this format:
 Rating rules:
 - Every Strong or Partial rating needs an exact quote copied from a tool result that names the skill. No quote = Missing.
 - Strong = the sources show it directly. Partial = something closely related is shown. Missing = not in the sources. Never rate a tool Partial just because she learns fast.
-- For "X+ years" requirements, check the dates in the sources (e.g. her AI/Python projects are from 2026). Rate Strong only if the dates cover it; otherwise Partial, and state what is shown.
+- For "X+ years" requirements, count years from the earliest dated evidence of THAT skill up to today. Her Python and AI engineering work is dated 2026, so it is under one year: rate any "1+ years" or more of Python/AI as Partial, never Strong. Her 11+ years of marketing, e-commerce and music management count only for those fields.
 - Keep must-have and nice-to-have requirements in separate groups if the job description separates them.
 
 If anything is Missing or Partial, end with one sentence on how she learns, based ONLY on her "How I learn" facts.
@@ -112,14 +113,32 @@ def fix_links(text: str) -> str:
     return re.sub(r"\]\(https?://(?:www\.)?(?:rimakrivis\.vercel\.app/)?(?=[\w-]+(?:/[\w-]+)*\.(?:html|pdf))", "](/", text)
 
 
+# Gemini and Grok speak the same "OpenAI chat completions" API, so one SDK works for all three:
+# only the address (base_url), the key and the model name change.
+PROVIDERS = {
+    #          base_url                                                    key env var       default model
+    "openai": (None,                                                       "OPENAI_API_KEY", "gpt-5.4-mini"),
+    "gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/", "GEMINI_API_KEY", "gemini-3.8-flash"),
+    "xai":    ("https://api.x.ai/v1",                                      "XAI_API_KEY",    "grok-4.3"),
+}
+
+
+def _llm():
+    """Pick the chat model from env vars: LLM_PROVIDER (openai / gemini / xai) and optional LLM_MODEL."""
+    from openai import OpenAI
+    provider = os.environ.get("LLM_PROVIDER", "openai")
+    base_url, key_var, default_model = PROVIDERS[provider]
+    return OpenAI(base_url=base_url, api_key=os.environ[key_var]), os.environ.get("LLM_MODEL", default_model), provider
+
+
 def run_agent(question: str):
     """The agent loop. Yields events: {"type": "step", ...} while working, then {"type": "answer", ...}."""
-    from openai import OpenAI
-    client = OpenAI()
-    model = os.environ.get("OPENAI_MODEL", "gpt-5.5")
+    client, model, provider = _llm()
+    # cost cap on the answer length. OpenAI's newer name for it is max_completion_tokens (includes "thinking" tokens).
+    limit = {"max_completion_tokens": 4000} if provider == "openai" else {"max_tokens": 4000}
 
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": SYSTEM_PROMPT + f"\n\nToday's date: {date.today():%d %B %Y}."},   # models don't know "now"
         {"role": "user", "content": question[:MAX_INPUT_CHARS]},
     ]
 
@@ -130,14 +149,14 @@ def run_agent(question: str):
         response = client.chat.completions.create(
             model=model, messages=messages, tools=TOOLS,
             tool_choice="none" if last_round else "auto",      # last round: no more tools, must answer
-            max_completion_tokens=4000,                        # cost cap (GPT-5 models also count "thinking" tokens here)
+            **limit,
         )
         reply = response.choices[0].message
 
         # Count tokens: every call re-sends the WHOLE conversation, so input grows each round.
         usage["calls"] += 1
         usage["input_tokens"] += response.usage.prompt_tokens
-        usage["cached_tokens"] += getattr(response.usage.prompt_tokens_details, "cached_tokens", 0) or 0
+        usage["cached_tokens"] += getattr(getattr(response.usage, "prompt_tokens_details", None), "cached_tokens", 0) or 0
         usage["output_tokens"] += response.usage.completion_tokens
 
         if not reply.tool_calls:                               # the model decided it has enough evidence

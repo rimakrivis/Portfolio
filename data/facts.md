@@ -17,8 +17,8 @@ In my music work I managed the licensing and the budgets for releases: music lic
 ## Practical details
 - Based in Amsterdam, Netherlands.
 - Languages: Lithuanian (native), English (fluent), Dutch (B2), Russian (conversational).
-- TODO availability: e.g. "Available immediately" or "Available from <month>".
-- TODO work authorisation: e.g. "Allowed to work in the Netherlands / EU, no visa sponsorship needed".
+- Availability: available to start immediately.
+- Work authorisation: EU citizen (Lithuanian), allowed to work in the Netherlands and anywhere in the EU. No visa sponsorship needed.
 - Open to AI Engineering roles in the Amsterdam area: full-time, part-time or freelance, remote or on-site.
 
 ## Contact
