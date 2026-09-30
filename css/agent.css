@@ -1,0 +1,121 @@
+/* "See If We Match" recruiter chat — uses the site tokens from style.css, so light/dark mode just works. */
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- launcher ---------- */
+.agent-launcher {
+  position: fixed; right: var(--gutter); bottom: 24px; z-index: 90;
+  height: 60px; min-width: 60px; padding: 0 18px;           /* 18 + 24px icon + 18 = a 60px circle */
+  border-radius: 30px; border: 0; cursor: pointer;
+  background: var(--accent); color: var(--on-accent);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: border-radius .35s var(--ease);
+}
+.agent-launcher:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.agent-launcher-icon { font-size: 24px; line-height: 1; width: 24px; text-align: center; }
+/* hover: the circle stretches into a rounded rectangle and the label slides in */
+.agent-launcher-label {
+  font: 600 15px/1 var(--sans); white-space: nowrap; overflow: hidden;
+  max-width: 0; opacity: 0; margin-left: 0;
+  transition: max-width .35s var(--ease), opacity .25s var(--ease), margin-left .35s var(--ease);
+}
+.agent-launcher:hover, .agent-launcher:focus-visible { border-radius: 16px; }
+.agent-launcher:hover .agent-launcher-label,
+.agent-launcher:focus-visible .agent-launcher-label { max-width: 180px; opacity: 1; margin-left: 10px; }
+.agent-launcher::after {                         /* soft pulse ring */
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  border: 2px solid var(--accent); animation: agent-pulse 2.4s var(--ease) infinite;
+}
+.agent-launcher:hover::after, .agent-open .agent-launcher::after { animation: none; opacity: 0; }
+@keyframes agent-pulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.6); opacity: 0; } }
+
+/* ---------- call-to-action bubble ---------- */
+.agent-bubble {
+  position: fixed; right: var(--gutter); bottom: 96px; z-index: 90;
+  display: flex; align-items: flex-start; gap: 6px; max-width: min(300px, calc(100vw - 2 * var(--gutter)));
+  background: var(--ink); color: var(--paper); border-radius: 16px 16px 4px 16px;
+  padding: 12px 10px 12px 16px; font-size: 14.5px; line-height: 1.4;
+  opacity: 0; transform: translateY(8px); pointer-events: none; transition: .4s var(--ease);
+}
+.agent-bubble.show { opacity: 1; transform: none; pointer-events: auto; }
+.agent-bubble button { background: none; border: 0; color: inherit; font: inherit; cursor: pointer; text-align: left; padding: 0; }
+.agent-bubble-close { opacity: .6; font-size: 12px !important; padding: 2px 4px !important; }
+.agent-bubble-close:hover { opacity: 1; }
+
+/* ---------- panel ---------- */
+.agent-panel {
+  position: fixed; right: var(--gutter); bottom: 96px; z-index: 95;
+  width: 400px; height: min(600px, calc(100vh - 130px)); padding: 0; margin: 0;   /* reset the site-wide section padding */
+  display: flex; flex-direction: column;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 18px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .18);
+  font-size: 15px; line-height: 1.5;
+}
+.agent-panel[hidden] { display: none; }
+
+.agent-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--rule); background: var(--paper-2); }
+.agent-head strong { display: block; font-family: var(--round); font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
+.agent-head .mono { color: var(--ink-2); font-size: 11px; }
+.agent-close { background: none; border: 1px solid var(--rule); color: var(--ink); border-radius: 999px; width: 32px; height: 32px; cursor: pointer; flex: none; }
+.agent-close:hover { border-color: var(--ink); }
+
+.agent-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; overscroll-behavior: contain; }
+.agent-msg p { margin: 0 0 .6em; }
+.agent-msg p:last-child { margin-bottom: 0; }
+.agent-user { align-self: flex-end; max-width: 85%; background: var(--ink); color: var(--paper); border-radius: 14px 14px 4px 14px; padding: 10px 14px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.agent-bot { align-self: stretch; }
+
+.agent-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.agent-chips button {
+  background: none; border: 1px solid var(--rule); color: var(--ink); border-radius: 999px;
+  padding: 7px 12px; font: 500 13px/1.3 var(--sans); cursor: pointer; text-align: left;
+}
+.agent-chips button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* live agent steps */
+.agent-steps-title { color: var(--ink-2); font-size: 11px; margin-bottom: 6px !important; }
+.agent-steps { list-style: none; margin: 0 0 12px; padding: 10px 12px; border: 1px dashed var(--rule); border-radius: 10px; font-size: 13px; color: var(--ink-2); }
+.agent-steps li { padding: 2px 0 2px 22px; position: relative; overflow-wrap: anywhere; }
+.agent-steps li::before { position: absolute; left: 0; width: 16px; text-align: center; }
+.agent-steps li.done::before { content: "✓"; color: var(--accent); }
+.agent-steps li.active { color: var(--ink); }
+.agent-steps li.active::before {
+  content: ""; top: 7px; left: 3px; width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid var(--accent); border-right-color: transparent; animation: agent-spin .8s linear infinite;
+}
+@keyframes agent-spin { to { transform: rotate(360deg); } }
+
+/* answer */
+.agent-answer ul { margin: 0 0 .8em; padding-left: 18px; }
+.agent-answer li { margin-bottom: .4em; }
+.agent-answer a { color: var(--accent); text-underline-offset: 2px; }
+.agent-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.agent-actions > * {
+  font: 500 13px/1 var(--sans); padding: 9px 13px; border-radius: 999px; cursor: pointer; text-decoration: none;
+  border: 1px solid var(--rule); background: none; color: var(--ink);
+}
+.agent-actions .agent-email { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.agent-actions > *:hover { border-color: var(--ink); }
+.agent-error { color: var(--accent); }
+.agent-error a { color: inherit; }
+
+/* input */
+.agent-form { display: flex; align-items: flex-end; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--rule); }
+.agent-form textarea {
+  flex: 1; resize: none; max-height: 180px; border: 1px solid var(--rule); border-radius: 12px;
+  background: var(--paper-2); color: var(--ink); font: 15px/1.4 var(--sans); padding: 9px 12px;
+}
+.agent-form textarea:focus { outline: none; border-color: var(--ink); }
+.agent-send { flex: none; width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--accent); color: var(--on-accent); font-size: 18px; cursor: pointer; }
+.agent-send:disabled { opacity: .4; cursor: default; }
+.agent-foot { margin: 0; padding: 0 12px 10px; font-size: 10px; color: var(--ink-2); text-align: center; }
+
+/* ---------- mobile: full screen ---------- */
+@media (max-width: 600px) {
+  .agent-panel { inset: 0; width: auto; height: auto; border-radius: 0; border: 0; }
+  .agent-open .agent-launcher, .agent-open .agent-bubble { display: none; }
+  .agent-open body { overflow: hidden; }
+  .agent-form textarea { font-size: 16px; }         /* 16px stops iPhone zooming in on focus */
+}

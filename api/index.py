@@ -16,6 +16,7 @@ Run locally from the portfolio folder:
 """
 
 import json
+import os
 import time
 from collections import defaultdict, deque
 
@@ -24,7 +25,7 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
 from api.agent import MAX_INPUT_CHARS, run_agent
-from api.rag import _load_env
+from api.rag import ROOT, _load_env
 
 _load_env()                                  # local: key from .env.local. On Vercel the env vars are already set.
 app = FastAPI()
@@ -88,3 +89,17 @@ def chat(body: ChatRequest, request: Request):
 
     return StreamingResponse(stream(), media_type="text/event-stream",
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+
+# ---------- local testing only: also serve the website, so page + API share one address (like on Vercel) ----------
+if not os.environ.get("VERCEL"):
+    from fastapi import HTTPException
+    from fastapi.staticfiles import StaticFiles
+
+    class _Site(StaticFiles):
+        async def get_response(self, path, scope):
+            if any(p.startswith(".") and p != "." for p in path.split("/")):   # never serve .env.local, .git, ...
+                raise HTTPException(404)
+            return await super().get_response(path, scope)
+
+    app.mount("/", _Site(directory=ROOT, html=True), name="site")       # mounted last: /api/chat still wins

@@ -39,6 +39,14 @@
     </div>`;
   document.body.append(footer);
 
+  // ---------- "See If We Match" recruiter chat (js/agent.js + css/agent.css) ----------
+  const agentCss = document.createElement("link");
+  agentCss.rel = "stylesheet"; agentCss.href = `${root}css/agent.css`;
+  document.head.append(agentCss);
+  const agentJs = document.createElement("script");
+  agentJs.src = `${root}js/agent.js`; agentJs.defer = true;
+  document.body.append(agentJs);
+
   // ---------- mobile menu ----------
   const menuBtn = header.querySelector(".menu-toggle");
   const navEl = header.querySelector(".nav");

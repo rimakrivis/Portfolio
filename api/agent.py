@@ -109,7 +109,7 @@ def run_tool(name: str, args: dict) -> str:
 
 def fix_links(text: str) -> str:
     """Models sometimes turn /about.html into https://about.html. Code is more reliable than asking nicely."""
-    return re.sub(r"\]\(https?://(?:www\.)?(?:rima-krivickiene\.com/)?(?=[\w-]+(?:/[\w-]+)*\.(?:html|pdf))", "](/", text)
+    return re.sub(r"\]\(https?://(?:www\.)?(?:rimakrivis\.vercel\.app/)?(?=[\w-]+(?:/[\w-]+)*\.(?:html|pdf))", "](/", text)
 
 
 def run_agent(question: str):
