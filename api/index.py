@@ -26,6 +26,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))   # Vercel: make
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, StreamingResponse
+from typing import Literal
+
 from pydantic import BaseModel
 
 from api._agent import MAX_INPUT_CHARS, run_agent
@@ -39,9 +41,16 @@ RATE_WINDOW = 3600                           # ...per hour (seconds)
 _hits: dict[str, deque] = defaultdict(deque) # ip -> timestamps of recent requests (in memory, per server instance)
 
 
+class Turn(BaseModel):
+    """One earlier message. Only these two roles are accepted — a visitor can't inject a fake "system" message."""
+    role: Literal["user", "assistant"]
+    content: str
+
+
 class ChatRequest(BaseModel):
     """Pydantic checks the JSON body for us: it must be {"message": "<text>"}, or FastAPI answers 422."""
     message: str
+    history: list[Turn] = []                 # memory: the conversation so far, kept by the browser
 
 
 def _client_ip(request: Request) -> str:
@@ -81,7 +90,7 @@ def chat(body: ChatRequest, request: Request):
     def stream():
         """A generator: FastAPI sends each yielded string to the browser immediately."""
         try:
-            for event in run_agent(message):
+            for event in run_agent(message, [t.model_dump() for t in body.history]):
                 if event["type"] == "step":
                     yield _sse("step", {"tool": event["tool"], "args": event["args"]})
                 else:

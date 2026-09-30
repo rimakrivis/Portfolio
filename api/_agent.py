@@ -25,6 +25,8 @@ from api._rag import ROOT, _load, _load_env, search
 
 MAX_ROUNDS = 6                   # safety net: the agent can't loop (and spend money) forever
 MAX_INPUT_CHARS = 12_000         # a long job description is ~4k characters
+MAX_HISTORY_MESSAGES = 8         # memory: the last 4 questions + 4 answers
+MAX_HISTORY_CHARS = 30_000       # ...and never more than this much old text (cost cap)
 
 SYSTEM_PROMPT = """You are Rima Krivickienė's portfolio assistant. You answer recruiters' questions about Rima's professional profile.
 
@@ -37,9 +39,10 @@ If the user pastes a JOB DESCRIPTION, answer in this format:
 **Overall fit:** one or two sentences.
 
 **Requirements**
-- ✅ **Strong** — <requirement>: "<short exact quote from a tool result>" ([source](url))
-- 🟡 **Partial** — <requirement>: "<short exact quote>" — <what is not shown> ([source](url))
-- ⬜ **Missing** — <requirement>: not shown in her portfolio.
+- **<requirement>**: "<short exact quote from a tool result>" ([source](url)) → ✅ Strong
+- **<requirement>**: "<short exact quote>", but <what is not shown> ([source](url)) → 🟡 Partial
+- **<requirement>**: not shown in her portfolio → ⬜ Missing
+Write the evidence FIRST and the rating LAST, and let the rating follow from the evidence you just wrote.
 
 **Most relevant projects:** 2–3 links with one line each.
 
@@ -53,6 +56,7 @@ If anything is Missing or Partial, end with one sentence on how she learns, base
 Close with: Interested? [Email Rima](mailto:rima.poderyte@gmail.com?subject=Role%20fit).
 
 For any other question: a short answer, then the source links.
+For follow-up questions, use the earlier conversation for context (e.g. the job description pasted before), but still search for evidence.
 
 Rules:
 - Answer ONLY from tool results. Never invent experience, numbers, dates or tools. When unsure, rate lower, not higher.
@@ -131,7 +135,16 @@ def _llm():
     return OpenAI(base_url=base_url, api_key=os.environ[key_var]), os.environ.get("LLM_MODEL", default_model), provider
 
 
-def run_agent(question: str):
+def _trim_history(history: list[dict]) -> list[dict]:
+    """Keep only recent user/assistant turns, within the character budget (oldest dropped first)."""
+    turns = [{"role": t["role"], "content": t["content"][:MAX_INPUT_CHARS]}
+             for t in history if t.get("role") in ("user", "assistant")][-MAX_HISTORY_MESSAGES:]
+    while turns and sum(len(t["content"]) for t in turns) > MAX_HISTORY_CHARS:
+        turns.pop(0)
+    return turns
+
+
+def run_agent(question: str, history: list[dict] | None = None):
     """The agent loop. Yields events: {"type": "step", ...} while working, then {"type": "answer", ...}."""
     client, model, provider = _llm()
     # cost cap on the answer length. OpenAI's newer name for it is max_completion_tokens (includes "thinking" tokens).
@@ -139,6 +152,7 @@ def run_agent(question: str):
 
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT + f"\n\nToday's date: {date.today():%d %B %Y}."},   # models don't know "now"
+        *_trim_history(history or []),                          # memory: the conversation so far
         {"role": "user", "content": question[:MAX_INPUT_CHARS]},
     ]
 

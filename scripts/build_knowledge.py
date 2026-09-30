@@ -44,7 +44,8 @@ TEXT_TAGS = ["h1", "h2", "h3", "h4", "p", "li", "td", "th", "dt", "dd", "figcapt
 
 # ---------- 1. extract: HTML -> sections of clean text ----------
 def html_sections(path: str, page_name: str) -> list[dict]:
-    """Walk a page top to bottom and group its text into sections that start at each h2/h3."""
+    """Walk a page top to bottom and group its text into sections that start at each h2/h3
+    or at a small section label like <p class="label">04 / Education</p>."""
     soup = BeautifulSoup((ROOT / path).read_text(encoding="utf-8"), "html.parser")
     main = soup.find("main") or soup.body
     sections, current = [], {"heading": page_name, "anchor": "", "lines": []}
@@ -57,19 +58,22 @@ def html_sections(path: str, page_name: str) -> list[dict]:
         text = " ".join(el.get_text(" ", strip=True).split())
         if not text:
             continue
-        if el.name in ("h2", "h3"):                      # a new section starts here
+        is_label = el.name == "p" and "label" in (el.get("class") or [])
+        if el.name in ("h2", "h3") or is_label:          # a new section starts here
             if current["lines"]:
                 sections.append(current)
             holder = el.find_parent(id=True)             # nearest element with an id -> link anchor
-            current = {"heading": text, "anchor": holder["id"] if holder else "", "lines": []}
+            heading = re.sub(r"^\d+\s*/\s*", "", text)   # "04 / Education" -> "Education"
+            current = {"heading": heading, "anchor": holder["id"] if holder else "", "lines": []}
         current["lines"].append(text)
     if current["lines"]:
         sections.append(current)
 
-    # merge tiny sections (e.g. a heading with one line) into the previous one, so every chunk carries meaning
+    # merge a bare heading (no text of its own) into the previous section. Short sections with real text stay
+    # separate: gluing them together would mix e.g. two different projects in one chunk.
     merged = []
     for s in sections:
-        if merged and len(" ".join(s["lines"]).split()) < 30:
+        if merged and len(s["lines"]) < 2:
             merged[-1]["lines"] += s["lines"]
         else:
             merged.append(s)

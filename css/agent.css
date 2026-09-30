@@ -119,3 +119,9 @@
   .agent-open body { overflow: hidden; }
   .agent-form textarea { font-size: 16px; }         /* 16px stops iPhone zooming in on focus */
 }
+
+/* header buttons: "New chat" + close */
+.agent-head-btns { display: flex; align-items: center; gap: 8px; }
+.agent-new { background: none; border: 1px solid var(--rule); color: var(--ink); border-radius: 999px; height: 32px; padding: 0 12px; font: 500 12.5px/1 var(--sans); cursor: pointer; }
+.agent-new:hover { border-color: var(--ink); }
+.agent-new[hidden] { display: none; }

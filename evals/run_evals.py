@@ -29,8 +29,8 @@ PRICES = {
 
 
 def _line(answer: str, word: str) -> str:
-    """The first answer line that mentions `word` (case-insensitive), or ''."""
-    return next((l for l in answer.splitlines() if word.lower() in l.lower()), "")
+    """The first RATING line (✅ / 🟡 / ⬜) that mentions `word` (case-insensitive), or ''."""
+    return next((l for l in answer.splitlines() if word.lower() in l.lower() and any(m in l for m in "✅🟡⬜")), "")
 
 
 def _emails_ok(a: str) -> bool:

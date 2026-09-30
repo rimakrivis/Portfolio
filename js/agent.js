@@ -33,7 +33,10 @@
         <strong>See If We Match</strong>
         <span class="mono">AI recruiter assistant</span>
       </div>
-      <button type="button" class="agent-close" aria-label="Close">✕</button>
+      <div class="agent-head-btns">
+        <button type="button" class="agent-new" hidden>New chat</button>
+        <button type="button" class="agent-close" aria-label="Close">✕</button>
+      </div>
     </header>
     <div class="agent-log" aria-live="polite">
       <div class="agent-msg agent-bot">
@@ -54,6 +57,9 @@
   document.body.append(bubble, launcher, panel);
 
   const log = panel.querySelector(".agent-log");
+  const welcome = log.innerHTML;                  // to restore on "New chat"
+  const newChat = panel.querySelector(".agent-new");
+  let history = [];                               // memory: [{role: "user" | "assistant", content}], sent with each question
   const form = panel.querySelector(".agent-form");
   const input = panel.querySelector("textarea");
   const send = panel.querySelector(".agent-send");
@@ -91,9 +97,19 @@
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
   });
-  panel.querySelectorAll("[data-q]").forEach((b) => b.addEventListener("click", () => ask(b.dataset.q)));
-  panel.querySelector("[data-jd]").addEventListener("click", () => {
-    input.placeholder = "Paste the job description here…";
+  // Chips live inside the log, so one delegated listener keeps working after "New chat" rebuilds it.
+  log.addEventListener("click", (e) => {
+    const chip = e.target.closest(".agent-chips button");
+    if (!chip || send.disabled) return;
+    if (chip.dataset.q) ask(chip.dataset.q);
+    else { input.placeholder = "Paste the job description here…"; input.focus(); }
+  });
+  newChat.addEventListener("click", () => {
+    if (send.disabled) return;                    // wait for the current answer
+    history = [];
+    log.innerHTML = welcome;
+    newChat.hidden = true;
+    input.placeholder = "Ask, or paste a job description…";
     input.focus();
   });
   form.addEventListener("submit", (e) => {
@@ -160,7 +176,7 @@
       const res = await fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ message: text, history: history.slice(-8) }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -180,7 +196,12 @@
           const event = (raw.match(/^event: (.*)$/m) || [])[1];
           const data = JSON.parse((raw.match(/^data: (.*)$/m) || [, "{}"])[1]);
           if (event === "step") addStep(stepLabel(data.tool, data.args || {}));
-          if (event === "answer") { finishSteps(); showAnswer(bot, data.text, text); }
+          if (event === "answer") {
+            finishSteps();
+            showAnswer(bot, data.text, text);
+            history.push({ role: "user", content: text }, { role: "assistant", content: data.text });
+            newChat.hidden = false;
+          }
           if (event === "error") throw new Error(data.text);
         }
       }
