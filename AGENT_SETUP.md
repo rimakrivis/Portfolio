@@ -59,3 +59,50 @@ Embeddings always use OpenAI `text-embedding-3-small`, because the knowledge bas
 
 12,000-character input · max 6 tool rounds · 10 requests per hour per visitor · 60-second timeout ·
 memory of the last 8 messages (30k characters) · API key only on the server.
+
+---
+
+## New client: quick walkthrough (copy-paste)
+
+For a **plain HTML site on Vercel**. For Next.js, React or WordPress sites the widget works, but the backend needs adapting.
+
+**1. Copy the engine into the client's project**
+```bash
+cd ~/Desktop/client-site
+SRC=~/Desktop/portfolio
+mkdir -p api js css scripts evals data
+cp $SRC/api/{index.py,_agent.py,_rag.py,_config.py,__init__.py} api/
+cp $SRC/js/agent.js js/ && cp $SRC/css/agent.css css/
+cp $SRC/scripts/build_knowledge.py scripts/ && cp $SRC/evals/run_evals.py evals/
+cp $SRC/requirements.txt $SRC/vercel.json $SRC/agent.config.json .
+printf ".env*.local\n__pycache__/\nevals/out/\n" >> .gitignore
+```
+
+**2. Edit `agent.config.json`**: name, pronouns, email, site URL, `pages`, `projects_dir`, widget texts.
+Delete Rima's `extra_rules` and add the client's own if needed.
+
+**3. Write `data/cv.md` and `data/facts.md`** with `## ` headings, including `## How I learn`.
+Write the facts together with the client: most of the answer quality comes from here.
+
+**4. Add the widget** to every page (before `</body>`) and copy the colour variables block
+(`:root { --paper … }`, including the dark-mode part) from the top of `css/style.css` into the client's CSS, then adjust the colours.
+
+**5. Key and knowledge base**
+```bash
+echo "OPENAI_API_KEY=sk-..." > .env.local
+python scripts/build_knowledge.py --dry-run    # free: check the chunks in data/knowledge.json
+```
+Copy the exact skills-section titles into `skills_sections` in the config, then do the real build:
+`python scripts/build_knowledge.py`
+
+**6. Test locally**: `uvicorn api.index:app --port 8811`, then open http://127.0.0.1:8811/.
+
+**7. Evals**: add 3 job descriptions that fit this client to `evals/`, replace Rima-specific checks in
+`run_evals.py` (e.g. "2+ yrs Python"), and run `python evals/run_evals.py` twice.
+
+**8. Go live**: Vercel → client project → Settings → Environment Variables → `OPENAI_API_KEY`.
+Push, then open `https://their-site/#see-if-we-match`.
+
+**About the API key:** for paying clients, use a key from **their** OpenAI account with a monthly budget
+limit, so their traffic is billed to them and a bug can never create a big bill for you.
+Give each client written permission (license) to use the agent on their site, e.g. one line in the invoice.
