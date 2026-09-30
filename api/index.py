@@ -17,15 +17,19 @@ Run locally from the portfolio folder:
 
 import json
 import os
+import sys
 import time
 from collections import defaultdict, deque
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))   # Vercel: make "api._agent" importable from the project root
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
-from api.agent import MAX_INPUT_CHARS, run_agent
-from api.rag import ROOT, _load_env
+from api._agent import MAX_INPUT_CHARS, run_agent
+from api._rag import ROOT, _load_env
 
 _load_env()                                  # local: key from .env.local. On Vercel the env vars are already set.
 app = FastAPI()
@@ -64,6 +68,7 @@ def _sse(event: str, data: dict) -> str:
 
 
 @app.post("/api/chat")
+@app.post("/api/index")                      # Vercel rewrites /api/chat -> /api/index (vercel.json); accept both
 def chat(body: ChatRequest, request: Request):
     message = body.message.strip()
     if not message:

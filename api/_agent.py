@@ -12,15 +12,15 @@ run_agent() is a generator: it `yield`s events ("step", "answer") as they happen
 The CLI prints them now; in Milestone 5 the API streams the same events to the browser.
 
 Try it from the portfolio folder:
-    python -m api.agent "What has Rima built with RAG and agents?"
-    python -m api.agent evals/jd_ai_engineer.txt          # a file = a job description
+    python -m api._agent "What has Rima built with RAG and agents?"
+    python -m api._agent evals/jd_ai_engineer.txt          # a file = a job description
 """
 
 import json
 import os
 import re
 
-from api.rag import ROOT, _load, _load_env, search
+from api._rag import ROOT, _load, _load_env, search
 
 MAX_ROUNDS = 6                   # safety net: the agent can't loop (and spend money) forever
 MAX_INPUT_CHARS = 12_000         # a long job description is ~4k characters

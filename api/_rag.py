@@ -7,7 +7,7 @@ Given a question, find the portfolio chunks whose meaning is closest to it:
     3. return the top k chunks        ->  these become the agent's evidence
 
 Try it from the portfolio folder:
-    python -m api.rag "experience with LangGraph agents"
+    python -m api._rag "experience with LangGraph agents"
 """
 
 import json
