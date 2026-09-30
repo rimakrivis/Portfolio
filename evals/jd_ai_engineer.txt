@@ -1,0 +1,16 @@
+AI Engineer — Amsterdam (hybrid)
+
+We're a scale-up building AI features for e-commerce brands. You'll design and ship LLM-powered products end to end.
+
+Must have:
+- 2+ years of Python
+- Experience building RAG pipelines and LLM agents (LangChain / LangGraph or similar)
+- REST APIs with FastAPI or Flask
+- Evaluating LLM output quality
+- Clear communication with non-technical stakeholders
+
+Nice to have:
+- Docker and Kubernetes
+- AWS or GCP
+- TypeScript / React
+- E-commerce domain knowledge
