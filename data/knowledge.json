@@ -39,7 +39,7 @@
   "id": 6,
   "title": "AI Engineering — See If We Match",
   "url": "/ai-engineering.html",
-  "text": "See If We Match\nAn agentic RAG recruiter assistant. Paste a job description and it rates every requirement Strong, Partial or Missing, backed by an exact quote and a link to the evidence.\nReAct agent\nRAG\nOpenAI tool calling\nFastAPI · SSE\nEvals\nVercel"
+  "text": "See If We Match\nAn agentic RAG recruiter assistant. Paste a job description and it rates every requirement Strong, Partial or Missing, backed by an exact quote and a link to the evidence. Lightweight by design: no database, no agent framework, just JSON files and one serverless function on Vercel.\nRead more\nNot every agent needs a heavy stack. DropOperator uses LangGraph, a Pinecone vector database and Supabase because it stores plans, calendars and user data. This agent only has to search one portfolio, so its whole knowledge base is two JSON files of about 1 MB: 71 text chunks and their embeddings. They load into memory when a request comes in, and a few lines of Python compare them by cosine similarity.\nThat makes it a smaller, more sustainable agent: two Python packages (FastAPI and OpenAI), no database to host or pay for, nothing running between visits, and under 1¢ per job check. When the site text changes, one script rebuilds the JSON. The trade-off is clear too: with thousands of documents, frequent updates or per-user data, I'd switch to a vector database.\nI built it with Claude Code as my AI pair programmer.\nReAct agent\nRAG\nOpenAI tool calling\nFastAPI · SSE\nEvals\nVercel"
  },
  {
   "id": 7,
@@ -283,180 +283,198 @@
  },
  {
   "id": 47,
+  "title": "See If We Match case study — Lightweight by design",
+  "url": "/work/see-if-we-match.html",
+  "text": "Lightweight by design Not every agent needs LangGraph, a vector database and a backend server. For a job this size, a small agent does the work just as well, and it's cheaper and easier to keep running. Read more No database. The whole knowledge base is two JSON files of about 1 MB: knowledge.json with 71 text chunks and embeddings.json with their vectors. They load into memory when a request comes in, and retrieval is a few lines of Python comparing vectors by cosine similarity. For 71 chunks that takes milliseconds, so a vector database would only add another service to host and pay for. No agent framework. The ReAct loop runs directly on the OpenAI SDK. The only dependencies are FastAPI and OpenAI, which keeps the serverless cold start fast and the code easy to follow. One serverless function on Vercel. The website is static and the agent is a single Python function that only runs when someone asks a question. Nothing runs between visits, and a job check costs under 1¢. Easy to update. When the site text changes, one script rebuilds the JSON files, and they ship with the next deploy. Knowing the limit. This works because the knowledge is small and changes rarely. With thousands of documents, frequent updates or per-user data, I'd use a vector"
+ },
+ {
+  "id": 48,
+  "title": "See If We Match case study — Lightweight by design",
+  "url": "/work/see-if-we-match.html",
+  "text": "changes, one script rebuilds the JSON files, and they ship with the next deploy. Knowing the limit. This works because the knowledge is small and changes rarely. With thousands of documents, frequent updates or per-user data, I'd use a vector database, the way I did in DropOperator with Pinecone and Supabase."
+ },
+ {
+  "id": 49,
+  "title": "See If We Match case study — How I built it",
+  "url": "/work/see-if-we-match.html",
+  "text": "How I built it\nI built See If We Match with Claude Code, Anthropic's AI coding assistant, as my pair programmer. I set the goals, made the architecture and model choices, decided what the eval tests check and ran them after every change. Claude Code helped me write, debug and refactor the code."
+ },
+ {
+  "id": 50,
   "title": "See If We Match case study — Difficulties solved",
   "url": "/work/see-if-we-match.html",
   "text": "Difficulties solved\nHallucination: every rating must quote the portfolio word for word; no quote means Missing.\nOverrating: today's date is injected, and years of experience are counted from dated evidence.\nInconsistent runs: evidence first, verdict last. The model writes the quote before choosing the rating.\nPrompt injection: user text is treated as data, and chat history only accepts user/assistant roles.\nBroken links: repaired in code, because deterministic fixes belong in code, not prompts."
  },
  {
-  "id": 48,
+  "id": 51,
   "title": "See If We Match case study — Evaluation",
   "url": "/work/see-if-we-match.html",
   "text": "Evaluation\nAn automatic eval suite runs 4 test cases with 13 pass/fail checks, including a check that every quote really exists in the portfolio. With a date-aware prompt and an evidence-first format, gpt-5.4-mini passes 13/13 on repeated runs with 0 invented quotes , at under 1¢ per job check, about 7× cheaper than gpt-5.5.\nPython\nFastAPI\nOpenAI API (tool calling, embeddings)\nRAG\nReAct agent\nSSE streaming\nVanilla JS\nVercel"
  },
  {
-  "id": 49,
+  "id": 52,
   "title": "DropOperator case study — ← AI Engineering / Case study 02",
   "url": "/work/dropoperator.html",
   "text": "← AI Engineering / Case study 02\nDropOperator .\nAn AI-powered music release planner, \"because every drop deserves an operator\". Give it a song and it gives you a full release strategy with dates, pitches and a task board.\nRole\nSolo build, from architecture to deployment\nContext\nIronhack AI Engineering, final project\nYear\n2026, still developing\nStatus\nLive on Vercel + Render\nBusiness pitch deck · use ← → or swipe"
  },
  {
-  "id": 50,
+  "id": 53,
   "title": "DropOperator case study — The problem",
   "url": "/work/dropoperator.html",
   "text": "The problem\nI managed releases for a rock band for years, and every single one meant the same scramble: when to pitch Spotify editorial, which radio stations to email, what to post and on which day. Independent artists rarely have a manager to plan this, so good songs come out with no plan at all."
  },
  {
-  "id": 51,
+  "id": 54,
   "title": "DropOperator case study — What I built",
   "url": "/work/dropoperator.html",
   "text": "What I built\nSong in, strategy out. Upload an MP3/WAV or paste a YouTube URL. The app transcribes the lyrics, detects the genre and builds a release plan with dates.\nA LangGraph ReAct agent with 6 tools decides what it needs: audio analysis, lyrics, Spotify data, and a Pinecone RAG knowledge base of music-marketing know-how (512 chunks).\nPlans become work. Every step syncs into a calendar and a to-do board in Supabase. Each task has its own assistant for writing Spotify pitches, radio emails and captions.\nBeyond single releases: concert and social-campaign project types, band profiles and per-project memory."
  },
  {
-  "id": 52,
+  "id": 55,
   "title": "DropOperator case study — Architecture",
   "url": "/work/dropoperator.html",
   "text": "Architecture\nPython 3.11\nFastAPI\nLangGraph / LangChain\nxAI Grok + GPT-4o\nOpenAI embeddings\nPinecone\nSupabase Postgres\nEssentia (400-class genre model)\nAssemblyAI\nyt-dlp · Spotipy\nNext.js 14 · TypeScript · Tailwind\nVercel · Render\nGenre detection uses Essentia's Discogs-EffNet model locally. On the free Render tier I swapped it for a lighter librosa pipeline so the live app stays fast. That's a real production trade-off, not just a demo."
  },
  {
-  "id": 53,
+  "id": 56,
   "title": "DropOperator case study — Evaluation",
   "url": "/work/dropoperator.html",
   "text": "Evaluation\nI wrote an automated evaluation suite that scores the agent's plans. The latest run passed 4 of 5 test cases with an average score of 0.79 , and the failing case shows me what to fix next.\nSee it work"
  },
  {
-  "id": 54,
+  "id": 57,
   "title": "ReviewReply case study — ← AI Engineering / Case study 03",
   "url": "/work/reviewreply.html",
   "text": "← AI Engineering / Case study 03\nReviewReply .\nA Chrome extension that drafts on-brand replies to Google Business reviews, in one click, right inside Google's review page.\nRole\nSolo: product, code and prompts\nBuilt for\nA real bar client, made reusable\nYear\n2026 · v0.2.1\nCost\nA fraction of a cent per reply"
  },
  {
-  "id": 55,
+  "id": 58,
   "title": "ReviewReply case study — The problem",
   "url": "/work/reviewreply.html",
   "text": "The problem\nSmall businesses get the same kinds of reviews again and again: a long wait at the bar, a refused entry, a wrong bill, praise for a favourite bartender. Answering each one well takes time, and generic AI replies sound generic. I was answering reviews for a bar client myself and wanted something that answers the way the owner would."
  },
  {
-  "id": 56,
+  "id": 59,
   "title": "ReviewReply case study — What I built",
   "url": "/work/reviewreply.html",
   "text": "What I built\nA situations playbook. For every recurring situation, the business describes how to recognise it, how to respond and what never to say. The model picks the matching situation and shows which one it used.\nOne-click drafts on the page. A \"✨ Draft reply\" bar above each reply box, with Shorter , Warmer and Try again .\nProfiles and templates for bars, restaurants, cafés, hotels and salons, with JSON import and export.\nSafe by default. Rules stop the AI admitting liability, promising refunds or repeating personal details. Review text is treated as data, never as instructions, and it's tested against a built-in \"ignore previous instructions\" attack.\nHuman in the loop. The extension only types a draft. A person reads it and clicks Google's own Post button.\nNo server. The API key stays in the browser, and reviews go only to OpenAI."
  },
  {
-  "id": 57,
+  "id": 60,
   "title": "ReviewReply case study — Stack",
   "url": "/work/reviewreply.html",
   "text": "Stack\nTypeScript\nChrome Manifest V3\nSide panel · Shadow DOM\nOpenAI structured outputs\ngpt-4o-mini (switchable)\nesbuild\nVitest + jsdom\nModel-comparison eval script"
  },
  {
-  "id": 58,
+  "id": 61,
   "title": "ReviewReply case study — Inside the extension",
   "url": "/work/reviewreply.html",
   "text": "Inside the extension\nDraft on the review page\nSettings & playbook\nSide panel"
  },
  {
-  "id": 59,
+  "id": 62,
   "title": "Fake News Detection case study — ← AI Engineering / Case study 04",
   "url": "/work/fake-news.html",
   "text": "← AI Engineering / Case study 04\nFake News Detection .\nA machine-learning classifier that sorts real headlines from fake ones, and an honest comparison of which models actually earn their place.\nTeam\nRima, Domien, Dimi\nContext\nIronhack AI Engineering\nYear\n2026\nBest result\n95.5% accuracy · F1 0.953\nProject presentation · use ← → or swipe\nApproach"
  },
  {
-  "id": 60,
+  "id": 63,
   "title": "Fake News Detection case study — Pipeline",
   "url": "/work/fake-news.html",
   "text": "Pipeline\nCleaning: NLTK normalisation, stop-word removal and Snowball stemming.\nFeatures: TF-IDF on 1–2-grams (min_df 5, max_df 0.8) plus FastText word embeddings.\nModels: Logistic Regression, Multinomial Naive Bayes, Random Forest and SVM, compared on the same validation split.\nEnsemble: a probability-averaging hybrid of NB + LR + FastText beat every single model."
  },
  {
-  "id": 61,
+  "id": 64,
   "title": "Fake News Detection case study — Results",
   "url": "/work/fake-news.html",
   "text": "Results\nModel\nAccuracy\nF1\nRandom Forest\n90.51%\n—\nNaive Bayes\n92.45%\n0.921\nSVM\n93.53%\n0.934\nLogistic Regression\n93.71%\n0.935\nNB + LR ensemble\n94.91%\n0.947\nTriple hybrid (NB + LR + FastText)\n95.48%\n0.953\nRandom Forest scored 99.97% on training data but only 90.5% on validation, a textbook case of overfitting. Spotting that early is why we went with the lighter, better-generalising ensemble.\nPython\nscikit-learn\nNLTK\nTF-IDF\nFastText\nPandas"
  },
  {
-  "id": 62,
+  "id": 65,
   "title": "Customer Feedback Intelligence case study — ← AI Engineering / Case study 05",
   "url": "/work/amazon-nlp.html",
   "text": "← AI Engineering / Case study 05\nCustomer Feedback Intelligence .\n\"Because reading 34,000 reviews manually is not data science. It's punishment.\" An NLP pipeline that turns raw Amazon reviews into sentiment, product groups and summaries a business can act on.\nTeam\nPavitra & Rima\nContext\nIronhack AI Engineering\nYear\n2026\nData\n34,620 Amazon reviews\nProject presentation · use ← → or swipe"
  },
  {
-  "id": 63,
+  "id": 66,
   "title": "Customer Feedback Intelligence case study — What it does",
   "url": "/work/amazon-nlp.html",
   "text": "What it does\nClassify sentiment. Star ratings mapped to three classes and balanced (812 per class). Text prepared with stemming, negation handling (\"not_good\") and TF-IDF bigrams, then labelled with VADER and a RoBERTa sentiment model (cardiffnlp twitter-roberta-base).\nGroup products. Sentence-Transformer embeddings (all-MiniLM-L6-v2) clustered with K-Means . The elbow method chose k = 5, shown with PCA, and each cluster got a business-friendly name like \"Top-Rated & Premium Picks\".\nSummarise. An LLM step writes a short summary per cluster, so a manager can read 5 paragraphs instead of 34K reviews.\nShow it. Streamlit + Plotly and Gradio dashboards with cluster selector, top products and raw data view.\nPython\nHugging Face Transformers\nRoBERTa\nVADER\nSentence-Transformers\nscikit-learn\nStreamlit\nGradio\nPlotly"
  },
  {
-  "id": 64,
+  "id": 67,
   "title": "CIFAR-10 CNN case study — ← AI Engineering / Case study 06",
   "url": "/work/cnn-cifar10.html",
   "text": "← AI Engineering / Case study 06\nCIFAR-10 CNNs .\nObject recognition with convolutional neural networks: ten deliberate iterations, each one testing a single hypothesis, from a 55.7% baseline to a 93.2% ensemble.\nTeam\nPavitra, Rima, Mohamed\nContext\nIronhack AI Engineering\nYear\n2026\nBest result\n93.21% test accuracy\nProject presentation · use ← → or swipe"
  },
  {
-  "id": 65,
+  "id": 68,
   "title": "CIFAR-10 CNN case study — Iterations",
   "url": "/work/cnn-cifar10.html",
   "text": "Iterations\nThis is where my biochemistry training shows: change one thing, measure, keep what works. We logged every model version in a tracking sheet.\nModel\nWhat changed\nTest acc.\n#1\nBaseline, 2 conv layers\n55.70%\n#2\n+ BatchNorm & Dropout\n62.63%\n#3\nOptimised for 32×32 input + BN\n82.15%\n#4\n6 conv layers + L2 regularisation\n81.00%\n#6\n13 conv layers + Global Avg Pooling\n93.03%\n#7\nContrast augmentation + AdamW (best single)\n93.12%\n#9\nEfficientNetB0 transfer learning\n91.35%\n#10\nFinal ensemble\n93.21%\nCats and dogs stayed the hardest pair to tell apart, as the confusion matrices show. Interestingly, transfer learning did not beat our own well-regularised CNN on these tiny 32×32 images.\nTensorFlow / Keras\nData augmentation\nBatch normalisation\nDropout · L2\nAdamW\nEfficientNetB0\nEnsembling"
  },
  {
-  "id": 66,
+  "id": 69,
   "title": "CV — Summary",
   "url": "/assets/cv.pdf",
   "text": "Summary\nAI Engineer and career changer with a background that spans science, digital operations, marketing and hands-on product building. I design and build generative AI applications, autonomous agents and RAG systems that solve real business problems — most recently DropOperator, a production-ready multi-agent platform I built from the ground up. Before transitioning into AI, I spent 11+ years running cross-functional projects across e-commerce, branding, digital marketing and the music industry — record releases, tours and TV appearances — delivering 40+ major campaigns since 2017."
  },
  {
-  "id": 67,
+  "id": 70,
   "title": "CV — Education",
   "url": "/assets/cv.pdf",
   "text": "Education\n- AI Engineering Bootcamp, Ironhack, 2026 — intensive 400-hour bootcamp: generative AI, LLMs, RAG systems, agents and machine learning, with hands-on collaborative projects.\n- BSc Biochemistry, Vilnius University, Lithuania — analytical and research methodology, data-driven scientific investigation."
  },
  {
-  "id": 68,
+  "id": 71,
   "title": "CV — Technical skills",
   "url": "/assets/cv.pdf",
   "text": "Technical skills\n- AI / GenAI: LangGraph, LangChain, RAG, LLM applications, agents, prompt engineering, embeddings, evaluation.\n- Backend: Python, FastAPI, SQL, REST APIs, OOP, Git, Bash.\n- Frontend: Next.js 14, TypeScript, React, Tailwind CSS.\n- ML / NLP: NLP, supervised and unsupervised learning, neural networks, deep learning, computer vision.\n- Data: NumPy, Pandas, data analysis, data visualisation, regex and text processing, vector databases.\n- Cloud: AWS Cloud Practitioner, cloud fundamentals, core AWS services."
  },
  {
-  "id": 69,
+  "id": 72,
   "title": "CV — Functional skills",
   "url": "/assets/cv.pdf",
   "text": "Functional skills\n- Leadership: team management, cross-functional coordination, full end-to-end project ownership.\n- Communication: stakeholder management, client-facing work, clear cross-team communication.\n- Digital: e-commerce, CMS, brand identity and campaign planning, artist and event management."
  },
  {
-  "id": 70,
+  "id": 73,
   "title": "CV — AI engineering projects",
   "url": "/assets/cv.pdf",
   "text": "AI engineering projects\n- DropOperator — multi-agent music release platform (solo build, architecture to deployment, 2026): turns audio uploads or YouTube URLs into release strategies with dated timelines, Spotify editorial pitches, PR campaigns and social media roadmaps. LangGraph ReAct agent with xAI Grok and GPT-4o, dynamic tool calling, Pinecone RAG over music-marketing knowledge, Essentia TensorFlow 400-class genre model, AssemblyAI, FastAPI backend, Next.js 14 and Supabase frontend, deployed on Vercel and Render.\n- NLP pipeline for Amazon product-review feedback classification (2026): TF-IDF and Sentence-Transformer embeddings with K-Means clustering, VADER sentiment and a RoBERTa model.\n- CNN computer-vision classifier on CIFAR-10 (2026): custom CNNs with data augmentation, batch normalisation and dropout."
  },
  {
-  "id": 71,
+  "id": 74,
   "title": "CV — Previous career",
   "url": "/assets/cv.pdf",
   "text": "Previous career\n- Artist Manager, Requiem (since 2019): release strategy, national touring, bookings and concert logistics; full release cycle including Spotify editorial pitching, radio campaigns, 3 vinyl releases and merchandise; grew Spotify listeners from 0 to 15K a month and passed 2 million YouTube views; runs a social media team.\n- Marketing Manager, Lost in Amsterdam and freelance clients (2017–2026): end-to-end marketing strategy across hospitality and e-commerce; web design, graphic design, CMS, e-shop operations, product listings and brand identity.\n- E-commerce Manager, Procare (2015–2023): ran a 1,000+ product online shop alongside an in-house development team — inventory, pricing, listings, fulfilment and content."
  },
  {
-  "id": 72,
+  "id": 75,
   "title": "Facts from Rima — How I learn",
   "url": "/about.html",
   "text": "How I learn\nI am a fast learner, and I can show it. I went from no production code to shipping DropOperator, a live multi-agent AI platform with RAG, a FastAPI backend and a Next.js frontend, during a 400-hour AI Engineering bootcamp at Ironhack in 2026.\nThroughout my career I have repeatedly learned new fields on the job: biochemistry, e-commerce, web design, marketing, artist management, vinyl production and now AI engineering. When a role needs a tool I haven't used yet, I pick it up quickly by building something real with it."
  },
  {
-  "id": 73,
+  "id": 76,
   "title": "Facts from Rima — Working style",
   "url": "/about.html",
   "text": "Working style\nI take full ownership of what I build, from idea and architecture to deployment and launch.\nI combine technical work with business sense: 11+ years of running campaigns, releases and online shops taught me to build things people actually use."
  },
  {
-  "id": 74,
+  "id": 77,
   "title": "Facts from Rima — Budgets, licensing and suppliers",
   "url": "/about.html",
   "text": "Budgets, licensing and suppliers\nIn my music work I managed the licensing and the budgets for releases: music licences, recording costs and vinyl production. I worked directly with suppliers such as recording studios and the vinyl pressing plant Green Lakes Pressing."
  },
  {
-  "id": 75,
+  "id": 78,
   "title": "Facts from Rima — Practical details",
   "url": "/about.html",
   "text": "Practical details\n- Based in Amsterdam, Netherlands.\n- Languages: Lithuanian (native), English (fluent), Dutch (B2), Russian (conversational).\n- Availability: available to start immediately.\n- Work authorisation: EU citizen (Lithuanian), allowed to work in the Netherlands and anywhere in the EU. No visa sponsorship needed.\n- Open to AI Engineering roles in the Amsterdam area: full-time, part-time or freelance, remote or on-site."
  },
  {
-  "id": 76,
+  "id": 79,
   "title": "Facts from Rima — Contact",
   "url": "/about.html",
   "text": "Contact\nEmail: rima.poderyte@gmail.com · LinkedIn: linkedin.com/in/rima-krivickiene-aiengineer · GitHub: github.com/rimakrivis"

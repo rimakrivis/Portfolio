@@ -29,7 +29,13 @@
         <div class="body">
           <span class="label">Featured · Solo build · Live on this site</span>
           <h3>See If We Match</h3>
-          <p>An agentic RAG recruiter assistant. Paste a job description and it rates every requirement Strong, Partial or Missing, backed by an exact quote and a link to the evidence.</p>
+          <p>An agentic RAG recruiter assistant. Paste a job description and it rates every requirement Strong, Partial or Missing, backed by an exact quote and a link to the evidence. Lightweight by design: no database, no agent framework, just JSON files and one serverless function on Vercel.</p>
+          <details class="more">
+            <summary><span class="link-arrow">Read more</span></summary>
+            <p>Not every agent needs a heavy stack. DropOperator uses LangGraph, a Pinecone vector database and Supabase because it stores plans, calendars and user data. This agent only has to search one portfolio, so its whole knowledge base is two JSON files of about 1 MB: 71 text chunks and their embeddings. They load into memory when a request comes in, and a few lines of Python compare them by cosine similarity.</p>
+            <p>That makes it a smaller, more sustainable agent: two Python packages (FastAPI and OpenAI), no database to host or pay for, nothing running between visits, and under 1¢ per job check. When the site text changes, one script rebuilds the JSON. The trade-off is clear too: with thousands of documents, frequent updates or per-user data, I'd switch to a vector database.</p>
+            <p>I built it with Claude Code as my AI pair programmer.</p>
+          </details>
           <ul class="tags"><li>ReAct agent</li><li>RAG</li><li>OpenAI tool calling</li><li>FastAPI · SSE</li><li>Evals</li><li>Vercel</li></ul>
           <div class="links">
             <a class="link-arrow" href="work/see-if-we-match.html">Case study →</a>

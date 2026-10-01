@@ -48,6 +48,18 @@
           <li><strong>Live agent steps.</strong> FastAPI streams each step to the browser over Server-Sent Events, so recruiters see the agent work.</li>
           <li><strong>Built to be reusable.</strong> All personal details live in one config file with a setup guide, so anyone can swap in their own site, CV and facts.</li>
         </ul>
+        <h3>Lightweight by design</h3>
+        <p>Not every agent needs LangGraph, a vector database and a backend server. For a job this size, a small agent does the work just as well, and it's cheaper and easier to keep running.</p>
+        <details class="more">
+          <summary><span class="link-arrow">Read more</span></summary>
+          <p><strong>No database.</strong> The whole knowledge base is two JSON files of about 1 MB: <code>knowledge.json</code> with 71 text chunks and <code>embeddings.json</code> with their vectors. They load into memory when a request comes in, and retrieval is a few lines of Python comparing vectors by cosine similarity. For 71 chunks that takes milliseconds, so a vector database would only add another service to host and pay for.</p>
+          <p><strong>No agent framework.</strong> The ReAct loop runs directly on the OpenAI SDK. The only dependencies are FastAPI and OpenAI, which keeps the serverless cold start fast and the code easy to follow.</p>
+          <p><strong>One serverless function on Vercel.</strong> The website is static and the agent is a single Python function that only runs when someone asks a question. Nothing runs between visits, and a job check costs under 1¢.</p>
+          <p><strong>Easy to update.</strong> When the site text changes, one script rebuilds the JSON files, and they ship with the next deploy.</p>
+          <p><strong>Knowing the limit.</strong> This works because the knowledge is small and changes rarely. With thousands of documents, frequent updates or per-user data, I'd use a vector database, the way I did in DropOperator with Pinecone and Supabase.</p>
+        </details>
+        <h3>How I built it</h3>
+        <p>I built See If We Match with Claude Code, Anthropic's AI coding assistant, as my pair programmer. I set the goals, made the architecture and model choices, decided what the eval tests check and ran them after every change. Claude Code helped me write, debug and refactor the code.</p>
         <h3>Difficulties solved</h3>
         <ul>
           <li><strong>Hallucination:</strong> every rating must quote the portfolio word for word; no quote means Missing.</li>
