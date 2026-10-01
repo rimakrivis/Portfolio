@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>See If We Match — Rima Krivickienė</title>
+<meta name="description" content="See If We Match: an agentic RAG recruiter assistant that checks a job description against a portfolio and rates every requirement with quoted evidence.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 01</p>
+      <h1 class="display">See If We Match<span class="accent">.</span></h1>
+      <p class="lede">An agentic RAG assistant that checks a job description against my portfolio, live. Every requirement is rated Strong, Partial or Missing, with an exact quote and a link to the evidence.</p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn" href="#see-if-we-match">Try it live <span class="arr">→</span></a>
+        <a class="btn ghost" href="https://github.com/rimakrivis/Portfolio" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Role</dt><dd>Solo build: design, backend, frontend, evaluation, deployment</dd></div>
+        <div><dt class="label">Audience</dt><dd>Recruiters &amp; hiring managers</dd></div>
+        <div><dt class="label">Year</dt><dd>2026</dd></div>
+        <div><dt class="label">Status</dt><dd>Live on every page of this site</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap reveal">
+    <div class="deck" data-src="../assets/slides/match/" data-count="9" data-title="See If We Match"></div>
+    <p class="label deck-caption">Project presentation · use ← → or swipe</p>
+  </div>
+
+  <section style="border-top:0">
+    <div class="wrap grid-12">
+      <p class="label side-label">The problem</p>
+      <div class="prose reveal">
+        <p>Recruiters have to match a job's requirements to a portfolio by hand, searching every project for each skill, and that takes time. So I built a chat that does the mapping for them, and names the gaps honestly instead of hiding them.</p>
+        <h3>What I built</h3>
+        <ul>
+          <li><strong>Paste a job description, get a fit check.</strong> The agent searches my projects, CV and site, then rates every requirement Strong / Partial / Missing with a word-for-word quote and a source link.</li>
+          <li><strong>A ReAct loop</strong> with 3 tools (<code>search_portfolio</code>, <code>list_skills</code>, <code>get_project</code>), max 6 rounds. No framework, for a fast serverless cold start and easy-to-follow code.</li>
+          <li><strong>RAG without a vector database.</strong> Website HTML + CV + a facts file become 71 section-aware chunks, embedded with text-embedding-3-small and searched by cosine similarity in pure Python.</li>
+          <li><strong>Live agent steps.</strong> FastAPI streams each step to the browser over Server-Sent Events, so recruiters see the agent work.</li>
+          <li><strong>Built to be reusable.</strong> All personal details live in one config file with a setup guide, so anyone can swap in their own site, CV and facts.</li>
+        </ul>
+        <h3>Difficulties solved</h3>
+        <ul>
+          <li><strong>Hallucination:</strong> every rating must quote the portfolio word for word; no quote means Missing.</li>
+          <li><strong>Overrating:</strong> today's date is injected, and years of experience are counted from dated evidence.</li>
+          <li><strong>Inconsistent runs:</strong> evidence first, verdict last. The model writes the quote before choosing the rating.</li>
+          <li><strong>Prompt injection:</strong> user text is treated as data, and chat history only accepts user/assistant roles.</li>
+          <li><strong>Broken links:</strong> repaired in code, because deterministic fixes belong in code, not prompts.</li>
+        </ul>
+        <h3>Evaluation</h3>
+        <p>An automatic eval suite runs 4 test cases with 13 pass/fail checks, including a check that every quote really exists in the portfolio. With a date-aware prompt and an evidence-first format, gpt-5.4-mini passes <strong>13/13</strong> on repeated runs with <strong>0 invented quotes</strong>, at under 1¢ per job check, about 7× cheaper than gpt-5.5.</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>OpenAI API (tool calling, embeddings)</li><li>RAG</li><li>ReAct agent</li><li>SSE streaming</li><li>Vanilla JS</li><li>Vercel</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="dropoperator.html"><span class="label">Next project</span><span class="display">DropOperator →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>

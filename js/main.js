@@ -171,6 +171,20 @@
     update();
   });
 
+  // ---------- project carousel: arrows scroll one card at a time ----------
+  document.querySelectorAll(".carousel").forEach((car) => {
+    const track = car.querySelector(".carousel-track"), [prev, next] = car.querySelectorAll("[data-dir]");
+    const step = () => track.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap);
+    const update = () => {
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+    };
+    [prev, next].forEach((b) => b.addEventListener("click", () => track.scrollBy({ left: step() * +b.dataset.dir })));
+    track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+    addEventListener("resize", update);
+    update();
+  });
+
   // ---------- gatefold vinyl animation ----------
   document.querySelectorAll(".lp[data-src]").forEach((lp) => {
     const src = lp.dataset.src, img = (f) => `url("${src}${f}")`;

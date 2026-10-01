@@ -91,7 +91,9 @@
   panel.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 
   // Shareable link that opens the chat straight away, e.g. https://rimakrivis.vercel.app/#see-if-we-match
-  if ((W.open_hashes || []).map((h) => `#${h}`).includes(location.hash)) open();
+  const openFromHash = () => { if ((W.open_hashes || []).map((h) => `#${h}`).includes(location.hash) && panel.hidden) open(); };
+  openFromHash();
+  addEventListener("hashchange", openFromHash);   // e.g. the "Try it live" button on the case study page
 
   // Call-to-action bubble: appears after 4s, once dismissed it stays away.
   function hideBubble() { bubble.classList.remove("show"); }
