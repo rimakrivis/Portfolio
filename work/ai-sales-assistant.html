@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Sales Assistant — Rima Krivickienė</title>
+<meta name="description" content="AI Sales Assistant: a smart form that fills itself in and adapts to every answer, an AI brief for the team, a RAG offer writer that never invents a price, and one click to send the offer.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23E8553C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ai" data-root="../">
+<main>
+  <section class="first case-hero">
+    <div class="wrap">
+      <p class="label"><a href="../ai-engineering.html" style="text-decoration:none">← AI Engineering</a> / Case study 02</p>
+      <h1 class="display">AI Sales Assistant<span class="accent">.</span></h1>
+      <p class="lede">The form that fills itself in. Clients type or simply talk, AI fills in the answers, and every answer shapes the next question. Behind it, the team gets an AI brief, and after the meeting a tailored offer is one click away from the client.</p>
+      <div class="btn-row" style="margin-top:26px">
+        <a class="btn" href="https://invisible-team-form.vercel.app" target="_blank" rel="noopener">Try the live form <span class="arr">↗</span></a>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">Role</dt><dd>Solo build: product, UX, backend, AI, deployment</dd></div>
+        <div><dt class="label">Built for</dt><dd>Small businesses that need details before they can quote</dd></div>
+        <div><dt class="label">Year</dt><dd>2026</dd></div>
+        <div><dt class="label">Status</dt><dd>Live on Vercel, in real use</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap reveal">
+    <div class="deck" data-src="../assets/slides/form/" data-count="3" data-title="AI Sales Assistant"></div>
+    <p class="label deck-caption">Project presentation · use ← → or swipe</p>
+  </div>
+
+  <section style="border-top:0">
+    <div class="wrap grid-12">
+      <p class="label side-label">The problem</p>
+      <div class="prose reveal">
+        <p>Long forms scare clients away, and short ones leave the business chasing details by email. Many clients don't even know what they need yet. So I built a form that feels like a conversation, and the whole path behind it: from the first answer to a sent offer.</p>
+        <h3>How it works</h3>
+        <ul>
+          <li><strong>The client fills in a smart form.</strong> Every answer decides the next question: a restaurant gets questions about takeaway and reservations, a shop about products and shipping, someone just starting out gets a shorter, friendlier path. 6 business types and 37 steps, but each client sees only 15–25.</li>
+          <li><strong>Or simply says what they need.</strong> Clients can type or talk in their own words. AI fills in the matching answers and the form skips everything it already knows.</li>
+          <li><strong>The team gets an AI brief.</strong> Each lead is validated and saved first, then AI writes a short summary with the questions to ask at the meeting.</li>
+          <li><strong>They meet and talk it through.</strong> In a private back office (Google sign-in), the team adds meeting notes and prices.</li>
+          <li><strong>AI drafts the offer.</strong> A RAG offer writer finds the services that fit, writes a tailored offer and turns it into a PDF. Texts, photos, colours and fonts can be finished by hand.</li>
+          <li><strong>One click to send.</strong> AI writes a personal email, code builds the designed layout, and the client gets a private link to their offer.</li>
+        </ul>
+        <h3>Smart, but never guessing</h3>
+        <p>The AI writes, but code decides what's true. Every guardrail that matters is checked in Python, not just asked for in a prompt.</p>
+        <details class="more">
+          <summary><span class="link-arrow">Read more</span></summary>
+          <p><strong>Only what the client said.</strong> The fill-in model is built at runtime from the form's own questions (a Pydantic model used as a structured output), so the AI can only pick options that exist. Every answer also needs a quote, and code drops any answer whose quote isn't in the client's text.</p>
+          <p><strong>Never invents a price.</strong> An early test made up two prices. Now every amount must appear in the team's own notes or edits; otherwise the offer says "Price to confirm".</p>
+          <p><strong>Budgets are always asked.</strong> "Maybe 100 euro" once turned into a price range, so money was removed from what the AI may fill in.</p>
+          <p><strong>A pipeline, not an agent.</strong> The offer writer is a fixed sequence (read the lead, retrieve, write, check, render), so the AI can never skip the price check.</p>
+        </details>
+        <h3>Under the hood</h3>
+        <ul>
+          <li><strong>Branching engine.</strong> Questions are data, each with a condition on earlier answers. One small engine finds the next question and remembers the path, so Back always goes back the same way.</li>
+          <li><strong>Structured outputs.</strong> A Pydantic model is built from the form's own questions while the app runs, so the AI can only choose answers that exist. Each answer needs a quote, and code checks the quote is really in the client's text.</li>
+          <li><strong>Selective RAG.</strong> The agency knowledge lives in one Markdown file, embedded and stored in Pinecone. Only the services are searched per client; the team, results and offer style are always included.</li>
+          <li><strong>Few-shot style memory.</strong> When the team rewrites AI text, the before and after are saved. The latest five go into the prompt as examples, so the AI learns the brand voice over time, without fine-tuning.</li>
+          <li><strong>A fixed pipeline, not an agent.</strong> The offer is always made in the same steps: find the services, write, check, design, PDF. The check only keeps prices the team wrote themselves; anything else becomes "Price to confirm".</li>
+          <li><strong>Brand style kept out of the AI.</strong> Each offer has its own colours and fonts, checked in code and turned into CSS. The AI never touches them, and the preview and the PDF always match.</li>
+        </ul>
+        <details class="more">
+          <summary><span class="link-arrow">More technical details</span></summary>
+          <p><strong>Save first, AI after.</strong> Pydantic checks each lead, it is saved straight away, and the AI brief is added later by a background task, so the client never waits and no lead is lost.</p>
+          <p><strong>Google Drive instead of a database.</strong> The server copies a client's files to a temporary workspace, then saves back only what changed.</p>
+          <p><strong>Google sign-in, built by hand.</strong> OAuth 2.0 without a library: a random check value against fake logins, a signed cookie that ends when Google's login ends, only the email permission, and a list of allowed team emails as a second lock.</p>
+          <p><strong>Private offer links.</strong> Each client gets a secret link that search engines can't find and that can be switched off at any time.</p>
+          <p><strong>Photos with AI vision.</strong> The AI sees small thumbnails to decide which photo goes where; code removes unknown or repeated picks.</p>
+        </details>
+        <h3>How I built it</h3>
+        <p>Built with Claude Code as my pair programmer, plus a custom Claude Code skill (<code>/wrap-up</code>) that logs every technical decision as I go. I made the product, architecture and model decisions.</p>
+        <h3>Difficulties solved</h3>
+        <ul>
+          <li><strong>A sync that deleted a photo:</strong> an empty temporary desk looked like "the user deleted these files". Deletes are now explicit, never inferred.</li>
+          <li><strong>Two clocks:</strong> the session cookie renewed on every click, Google's sign-in didn't. Both now stop together, with a warning 5 minutes before.</li>
+          <li><strong>Serverless limits:</strong> no Chrome and a small upload cap. The PDF is the browser's print of the offer page, and photos are shrunk in the browser, so saves went from ~20 s to ~7 s.</li>
+          <li><strong>Files served by accident:</strong> found by probing the live site; now only a whitelist of files is public.</li>
+          <li><strong>My own design assumption:</strong> a confirmation screen felt like re-reading, so I removed it after testing.</li>
+        </ul>
+        <h3>Evaluation</h3>
+        <p>Models were chosen by tests, not by feel. The same 8 test clients (English and Dutch, people just starting out, and a prompt-injection attempt) ran through two models. The smaller one guessed shop questions for a salon; gpt-4.1-mini got them right with <strong>no invented budgets or timing</strong>. A client who says "I have nothing yet" skips about 6 questions.</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>Pydantic</li><li>OpenAI structured outputs</li><li>RAG (Pinecone)</li><li>OAuth 2.0</li><li>Google Drive / Apps Script</li><li>Web Speech API</li><li>Vanilla JS</li><li>Vercel</li><li>Claude Code</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><a class="next-case" href="dropoperator.html"><span class="label">Next project</span><span class="display">DropOperator →</span></a></div>
+</main>
+<script src="../js/main.js"></script>
+</body>
+</html>
