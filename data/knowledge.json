@@ -81,7 +81,7 @@
   "id": 13,
   "title": "AI Engineering — Toolkit",
   "url": "/ai-engineering.html",
-  "text": "Toolkit\nAI / GenAI\nLangGraph\nLangChain\nRAG\nAgents\nPrompt engineering\nEmbeddings\nStructured outputs\nEvaluation\nBackend\nPython\nFastAPI\nPydantic\nOAuth 2.0\nSQL\nREST APIs\nGit\nBash\nFrontend\nNext.js 14\nTypeScript\nReact\nTailwind CSS\nVanilla JS\nWeb Speech API\nML / NLP\nNLP\nSupervised & unsupervised\nDeep learning\nComputer vision\nData\nNumPy\nPandas\nVisualisation\nVector databases\nCloud\nAWS Cloud Practitioner\nVercel\nRender\nSupabase\nGoogle Apps Script\nAI-assisted development\nClaude Code\nCustom Claude Code skills\nAgent guardrails\nProject memory"
+  "text": "Toolkit\nAI / GenAI\nLangGraph\nLangChain\nRAG\nAgents\nPrompt engineering\nEmbeddings\nStructured outputs\nEvaluation\nBackend\nPython\nFastAPI\nPydantic\nOAuth 2.0\nSQL\nREST APIs\nGit\nBash\nFrontend\nNext.js 14\nTypeScript\nReact\nTailwind CSS\nVanilla JS\nWeb Speech API\nML / NLP\nNLP\nSupervised & unsupervised\nDeep learning\nComputer vision\nData\nNumPy\nPandas\nVisualisation\nVector databases\nCloud\nAWS Cloud Practitioner\nVercel\nRender\nSupabase\nGoogle Apps Script\nAI-assisted development\nClaude Code\nCustom Claude Code skills\nAgent guardrails\nProject memory\nWeb & digital tools\nHTML\nCSS\nWordPress\nShopify\nWooCommerce\nCanva\nPhotoshop\nExcel\nPowerPoint"
  },
  {
   "id": 14,
@@ -249,7 +249,7 @@
   "id": 41,
   "title": "About — Toolkit",
   "url": "/about.html",
-  "text": "Toolkit\nAI / GenAI\nLangGraph\nLangChain\nRAG\nLLM applications\nAgents\nPrompt engineering\nEmbeddings\nStructured outputs\nEvaluation\nBackend\nPython\nFastAPI\nPydantic\nOAuth 2.0\nSQL\nREST APIs\nOOP\nGit\nBash\nFrontend\nNext.js 14\nTypeScript\nReact\nTailwind CSS\nVanilla JS\nWeb Speech API\nML / NLP\nNLP\nSupervised & unsupervised learning\nNeural networks\nDeep learning\nComputer vision\nData & cloud\nNumPy\nPandas\nData visualisation\nVector databases\nAWS Cloud Practitioner\nVercel\nGoogle Apps Script\nAI-assisted development\nClaude Code\nCustom Claude Code skills\nAgent guardrails\nProject memory\nLeadership & business\nTeam management\nStakeholder management\nE-commerce\nBrand & campaign planning\nArtist & event management"
+  "text": "Toolkit\nAI / GenAI\nLangGraph\nLangChain\nRAG\nLLM applications\nAgents\nPrompt engineering\nEmbeddings\nStructured outputs\nEvaluation\nBackend\nPython\nFastAPI\nPydantic\nOAuth 2.0\nSQL\nREST APIs\nOOP\nGit\nBash\nFrontend\nNext.js 14\nTypeScript\nReact\nTailwind CSS\nVanilla JS\nWeb Speech API\nML / NLP\nNLP\nSupervised & unsupervised learning\nNeural networks\nDeep learning\nComputer vision\nData & cloud\nNumPy\nPandas\nData visualisation\nVector databases\nAWS Cloud Practitioner\nVercel\nGoogle Apps Script\nAI-assisted development\nClaude Code\nCustom Claude Code skills\nAgent guardrails\nProject memory\nLeadership & business\nTeam management\nStakeholder management\nE-commerce\nBrand & campaign planning\nArtist & event management\nWeb & digital tools\nHTML\nCSS\nWordPress\nShopify\nWooCommerce\nCanva\nPhotoshop\nExcel\nPowerPoint"
  },
  {
   "id": 42,
@@ -519,22 +519,28 @@
   "id": 86,
   "title": "Facts from Rima — Working style",
   "url": "/about.html",
-  "text": "Working style\nI take full ownership of what I build, from idea and architecture to deployment and launch.\nI combine technical work with business sense: 11+ years of running campaigns, releases and online shops taught me to build things people actually use."
+  "text": "Working style\nI take full ownership of what I build, from idea and architecture to deployment and launch.\nI combine technical work with business sense: 11+ years of running campaigns, releases and online shops taught me to build things people actually use.\nI am organised, proactive and comfortable trying new approaches: I solve problems by building, and ask questions when I need to.\nI pay close attention to detail and quality: I test AI assistants against real data before launch, review code and designs critically, and keep written lessons so mistakes are not repeated.\nI turn repeated work into reusable systems (website and webshop templates, setup guides, custom Claude Code skills), so the next project is faster and consistent.\nI am practical about cost: I check real usage numbers and choose the simplest tool that does the job.\nI have a strong sense of design, built over years of brand identity, photography-led content and web design. I make clean, consistent pages and visuals."
  },
  {
   "id": 87,
+  "title": "Facts from Rima — Digital tools I use",
+  "url": "/about.html",
+  "text": "Digital tools I use\n- Web: HTML and CSS. I hand-build websites, including this portfolio.\n- CMS and e-commerce platforms: WordPress, Shopify, WooCommerce.\n- Design: Canva, Photoshop.\n- Office: Excel, PowerPoint.\n- AI-assisted building: Claude Code.\nI am comfortable with digital tools and learn new platforms quickly and intuitively. I have worked with many digital platforms across e-commerce, marketing and music."
+ },
+ {
+  "id": 88,
   "title": "Facts from Rima — Budgets, licensing and suppliers",
   "url": "/about.html",
   "text": "Budgets, licensing and suppliers\nIn my music work I managed the licensing and the budgets for releases: music licences, recording costs and vinyl production. I worked directly with suppliers such as recording studios and the vinyl pressing plant Green Lakes Pressing."
  },
  {
-  "id": 88,
+  "id": 89,
   "title": "Facts from Rima — Practical details",
   "url": "/about.html",
   "text": "Practical details\n- Based in Amsterdam, Netherlands.\n- Languages: Lithuanian (native), English (fluent), Dutch (B2), Russian (conversational).\n- Availability: available to start immediately.\n- Work authorisation: EU citizen (Lithuanian), allowed to work in the Netherlands and anywhere in the EU. No visa sponsorship needed.\n- Open to AI Engineering roles in the Amsterdam area: full-time, part-time or freelance, remote or on-site."
  },
  {
-  "id": 89,
+  "id": 90,
   "title": "Facts from Rima — Contact",
   "url": "/about.html",
   "text": "Contact\nEmail: rima.poderyte@gmail.com · LinkedIn: linkedin.com/in/rima-krivickiene-aiengineer · GitHub: github.com/rimakrivis"

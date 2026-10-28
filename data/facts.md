@@ -10,6 +10,19 @@ Throughout my career I have repeatedly learned new fields on the job: biochemist
 ## Working style
 I take full ownership of what I build, from idea and architecture to deployment and launch.
 I combine technical work with business sense: 11+ years of running campaigns, releases and online shops taught me to build things people actually use.
+I am organised, proactive and comfortable trying new approaches: I solve problems by building, and ask questions when I need to.
+I pay close attention to detail and quality: I test AI assistants against real data before launch, review code and designs critically, and keep written lessons so mistakes are not repeated.
+I turn repeated work into reusable systems (website and webshop templates, setup guides, custom Claude Code skills), so the next project is faster and consistent.
+I am practical about cost: I check real usage numbers and choose the simplest tool that does the job.
+I have a strong sense of design, built over years of brand identity, photography-led content and web design. I make clean, consistent pages and visuals.
+
+## Digital tools I use
+- Web: HTML and CSS. I hand-build websites, including this portfolio.
+- CMS and e-commerce platforms: WordPress, Shopify, WooCommerce.
+- Design: Canva, Photoshop.
+- Office: Excel, PowerPoint.
+- AI-assisted building: Claude Code.
+I am comfortable with digital tools and learn new platforms quickly and intuitively. I have worked with many digital platforms across e-commerce, marketing and music.
 
 ## Budgets, licensing and suppliers
 In my music work I managed the licensing and the budgets for releases: music licences, recording costs and vinyl production. I worked directly with suppliers such as recording studios and the vinyl pressing plant Green Lakes Pressing.
