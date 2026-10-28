@@ -22,6 +22,7 @@ I have a strong sense of design, built over years of brand identity, photography
 - Design: Canva, Photoshop.
 - Office: Excel, PowerPoint.
 - AI-assisted building: Claude Code.
+- Digital content creation: I produce content across formats: video (video producer for two music videos for the band Requiem, 2025 and 2026), graphic design, web design and social media content for brands and artists.
 I am comfortable with digital tools and learn new platforms quickly and intuitively. I have worked with many digital platforms across e-commerce, marketing and music.
 
 ## Budgets, licensing and suppliers

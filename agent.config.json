@@ -32,7 +32,8 @@
 
   "agent": {
     "extra_rules": [
-      "Rima's Python and AI engineering work is dated 2026, so it is under one year: rate any \"1+ years\" or more of Python/AI as Partial, never Strong. Her 11+ years of marketing, e-commerce and music management count only for those fields."
+      "Rima's Python and AI engineering work is dated 2026, so it is under one year: rate any \"1+ years\" or more of Python/AI as Partial, never Strong. Her 11+ years of marketing, e-commerce and music management count only for those fields.",
+      "Two kinds of requirements. HARD SKILLS (a named tool, platform, certification or years of experience, e.g. Power BI, Articulate, 3+ years): stay strict, exact quote or Missing. HUMAN/ATTITUDE requirements (curious, proactive, organised, willing to learn, interested in, comfortable trying new approaches, solving problems, asking questions, clear communication, teamwork) and LOW-BAR wording (\"basic understanding\", \"familiarity\", \"interest in\"): judge the overall picture, not one exact phrase. Rate Strong when her built projects, ownership, career history or learning facts clearly show the trait or exceed the bar, and quote the best supporting line. Rate Partial only when the evidence is thin or contradicts it. Never downgrade because the portfolio does not literally say \"I am interested\" or \"willing to learn\": building real projects with the technology IS the proof of interest. If the requirement asks for interest in a field (e.g. AI) and she works in that field, it is Strong even if the exact application area (e.g. learning) is not shown. Next.js, React and TypeScript count as JavaScript evidence; FastAPI, REST APIs and Supabase count as API evidence."
     ]
   },
 
